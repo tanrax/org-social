@@ -399,24 +399,6 @@ Org Mode's table support can be used for structured information:
 | bob | https://bob.dev/org-social.org | <2025-04-30 Wed> |
 ```
 
-## Direct Messages
-
-Direct messages can be stored in a separate section or file with encryption support:
-
-```org
-* Direct Messages
-:PROPERTIES:
-:ENCRYPTED: t
-:END:
-
-** <2025-05-02 Fri 10:00> Private message
-:PROPERTIES:
-:ID: 2025-05-02T10:00:00+01:00
-:TO: alice@https://alice.com/org-social.org
-:ENCRYPTED_CONTENT: [encrypted content here]
-:END:
-```
-
 ## Media Attachments
 
 Reference media files using Org Mode's attachment system or simple links:
@@ -434,26 +416,6 @@ I traveled to Spain! Check out this photo:
 Or using Org Mode attachments:
 
 [[attachment:spain-photo.jpg]]
-```
-
-## Agenda Integration
-
-Posts can be integrated with Org Mode's agenda system:
-
-```org
-** TODO <2025-05-02 Fri> Reply to Alice's message
-SCHEDULED: <2025-05-02 Fri>
-:PROPERTIES:
-:ID: task-001
-:END:
-
-Remember to reply to Alice's message about the project.
-
-** DONE <2025-05-01 Thu> Published post about Emacs
-CLOSED: [2025-05-01 Thu 12:34]
-:PROPERTIES:
-:ID: task-002
-:END:
 ```
 
 ## Follow Management
@@ -562,59 +524,12 @@ It depends on how you use it. Check the header `Last-Modified` to see if the fee
 
 Yes, you can modify or delete a post after you publish it. Just edit the file and upload it again keeping the original timestamp unchanged (otherwise you are making a new post and will break replies to your post). Clients will fetch the new file and update your profile.
 
-### Can I make an Org-social client in my favorite programming language?
+### Is there a official client?
 
-Absolutely! Org Mode files are just text files with a well-defined structure. You can parse them using existing Org Mode parsers available in many languages, or write your own parser.
-
-## Emacs Lisp Functions
-
-Here are some useful Emacs Lisp functions for working with Org-social:
-
-```emacs-lisp
-(defun org-social-new-post (content)
-  "Create a new Org-social post"
-  (interactive "sPost content: ")
-  (let ((timestamp (format-time-string "<%Y-%m-%d %a %H:%M>")))
-    (goto-char (point-max))
-    (insert "\n** " timestamp " " content "\n")
-    (insert ":PROPERTIES:\n")
-    (insert ":ID: " (format-time-string "%Y-%m-%dT%H:%M:%S%z") "\n")
-    (insert ":END:\n\n")))
-
-(defun org-social-mention-user (nick url)
-  "Insert a mention to another user"
-  (interactive "sUser nick: \nsUser URL: ")
-  (insert (format "[[org-social:%s@%s][%s]]" nick url nick)))
-
-(defun org-social-reply-to-post (post-id content)
-  "Create a reply to an existing post"
-  (interactive "sPost ID to reply to: \nsReply content: ")
-  (org-social-new-post content)
-  (org-set-property "REPLY_TO" post-id))
-
-(defun org-social-create-poll (question options end-date)
-  "Create a new poll"
-  (interactive "sQuestion: \nsOptions (comma-separated): \nsEnd date: ")
-  (let ((timestamp (format-time-string "<%Y-%m-%d %a %H:%M>")))
-    (goto-char (point-max))
-    (insert "\n** " timestamp " " question "\n")
-    (insert ":PROPERTIES:\n")
-    (insert ":ID: " (format-time-string "%Y-%m-%dT%H:%M:%S%z") "\n")
-    (when end-date
-      (insert ":POLL_END: " end-date "\n"))
-    (insert ":END:\n\n")
-    (dolist (option (split-string options ","))
-      (insert "- [ ] " (string-trim option) "\n"))))
-```
+No, at the moment there is no official client.
 
 ## Community
 
 Join the community to discuss Org-social development and share your feeds:
 
 - IRC: #org-social on irc.libera.chat
-- Matrix: #org-social:matrix.org
-- Mailing list: org-social@lists.sr.ht
-
-## Icon
-
-You can create your own icon for Org-social or use the Org Mode logo as inspiration, respecting its licensing terms.
