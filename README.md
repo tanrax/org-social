@@ -10,8 +10,8 @@ For example, you can create a file called `social.org` with the following conten
 #+DESCRIPTION: I'm a software developer and I love open source.
 #+AVATAR: https://my-awesome-website.com/avatar.jpg
 #+WEBSITE: https://my-awesome-website.com
-#+FOLLOW: foo http://foo.org/org-social.org
-#+FOLLOW: jane https://jane.com/org-social.org
+#+FOLLOW: foo http://foo.org/social.org
+#+FOLLOW: jane https://jane.com/social.org
 
 * Posts
 
@@ -352,11 +352,11 @@ To vote on a poll, create a vote post:
 :PROPERTIES:
 :ID: 2025-05-01T13:00:00+01:00
 :POLL_VOTE: 2025-05-01T12:00:00+01:00
-:POLL_OPTION: 1
-:POLL_URL: http://example.org/org-social.org
+:POLL_OPTION: Emacs Lisp
+:POLL_URL: http://example.org/social.org
 :END:
 
-I choose Python!
+I choose Emacs Lisp as my favorite programming language!
 ```
 
 The `POLL_OPTION` is the index starting from 1. You can omit `POLL_URL` when voting on your own polls.
