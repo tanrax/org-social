@@ -1,20 +1,17 @@
-# Org-Social
+# Org-social
 
-Org-Social is a **decentralized social network** that runs on an **Org Mode** file over HTTP.
+Org-social is a **decentralized social network** that runs on an **Org Mode** file over HTTP.
 
-For example, you can create a file called `org-social.org` with the following content:
+For example, you can create a file called `social.org` with the following content:
 
 ```org
 #+TITLE: Bob's Social Network
 #+AUTHOR: Bob
-#+EMAIL: bob@my-awesome-website.com
 #+DESCRIPTION: I'm a software developer and I love open source.
 #+AVATAR: https://my-awesome-website.com/avatar.jpg
 #+WEBSITE: https://my-awesome-website.com
 #+FOLLOW: foo http://foo.org/org-social.org
 #+FOLLOW: jane https://jane.com/org-social.org
-#+PUBLIC_KEY: 1234567890abcdef
-#+DM_URL: https://my-awesome-website.com/dm.org
 
 * Posts
 
@@ -23,14 +20,14 @@ For example, you can create a file called `org-social.org` with the following co
 :ID: 2024-12-12T12:00:00+01:00
 :END:
 
-This is my first post on Org-Social.
+This is my first post on Org-social.
 
 ** <2025-02-03 Mon 23:05> Welcome
 :PROPERTIES:
 :ID: 2025-02-03T23:05:00+01:00
 :END:
 
-Welcome to Org-Social [[org-social:foo@http://foo.org/org-social.org][foo]]!
+Welcome to Org-social [[org-social:foo@http://foo.org/org-social.org][foo]]!
 
 ** <2025-02-07 Fri 16:00> Follow-up question
 :PROPERTIES:
@@ -38,7 +35,7 @@ Welcome to Org-Social [[org-social:foo@http://foo.org/org-social.org][foo]]!
 :REPLY_TO: 2025-02-03T23:05:00+01:00
 :END:
 
-I forget to ask. Do you need help with Org-Social [[org-social:foo@http://foo.org/org-social.org][foo]]?
+I forget to ask. Do you need help with Org-social [[org-social:foo@http://foo.org/org-social.org][foo]]?
 
 ** <2025-02-08 Sat 12:00> Agreement
 :PROPERTIES:
@@ -52,24 +49,23 @@ I agree with you!
 
 Then you can upload the file to a web server and share the URL with your friends.
 
-You can publish posts, make replies, mention other users, send direct messages, create polls or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
+You can publish posts, make replies, mention other users, create polls or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
 
-Org-Social is heavily inspired by [twtxt](https://twtxt.readthedocs.io/en/stable/), [Texudus](https://texudus.com), and the extensions developed by the [Yarn community](https://twtxt.dev/). It takes the best of these specifications, eliminates complex parts, leverages Org Mode's native features, and keeps the premise that social networking should be simple, accessible to both humans and machines, and manageable with standard text editing tools.
+Org-social is heavily inspired by [twtxt](https://twtxt.readthedocs.io/en/stable/), [Texudus](https://texudus.com), and the extensions developed by the [Yarn community](https://twtxt.dev/). It takes the best of these specifications, eliminates complex parts, leverages Org Mode's native features, and keeps the premise that social networking should be simple, accessible to both humans and machines, and manageable with standard text editing tools.
 
 The values are:
 
-1. **Simplicity**: The specification is simple and easy to understand.
+1. **Simplicity**: Org-social is a simple text file that you can edit with any Emacs or text editor.
 2. **Accessibility**: The feed can be read by humans and machines.
 3. **Decentralization**: You are a node in the network. The feed is hosted on a web server and can be accessed by anyone.
-4. **Org Philosophy**: The feed is an Org Mode file that can be managed with Emacs and any text editor. You can use `curl`, `wget`, `cat`, `grep`, `sed`, and any other tool you like to manage your feed.
-5. **Rich Structure**: Leverages Org Mode's hierarchical structure and metadata capabilities.
+4. **Org Philosophy**: Native Org Mode features are used to enhance the social experience, such as timestamps, properties, and links.
 
 ## Quickstart
 
-### 1. Create an Org Mode file called `org-social.org`
+### 1. Create an Org Mode file called `social.org`
 
 ```sh
-$ touch ~/org-social.org
+M-x find-file RET social.org RET
 ```
 
 ### 2. Edit the file and add your basic information
@@ -77,7 +73,6 @@ $ touch ~/org-social.org
 ```org
 #+TITLE: My Social Network
 #+AUTHOR: YourNick
-#+EMAIL: your@email.com
 #+DESCRIPTION: A brief description about yourself
 ```
 
@@ -85,27 +80,33 @@ $ touch ~/org-social.org
 
 The format uses Org Mode headlines with timestamps. Each new post must be added under the `* Posts` section.
 
-You can use Emacs, `vim`, `vscode`, or any text editor. For example, using Emacs:
+```org
+* Posts
+```
+
+Now you can add your first post. You can use the Org Mode timestamp feature to insert the current date and time:
+
+```org
+** <2025-04-28 Mon 12:00> Hello world!
+:PROPERTIES:
+:ID: 2025-04-28T12:00:00+01:00
+:END:
+
+This is my first post on Org-social.
+```
+
+You can insert the timestamp manually, or use Emacs' built-in command to insert a timestamp:
 
 ```emacs-lisp
 M-x org-time-stamp
 ```
 
-Or with a simple unix command:
-
-```sh
-echo "** $(date '+<%Y-%m-%d %a %H:%M>') Hello world!" >> org-social.org
-echo ":PROPERTIES:" >> org-social.org
-echo ":ID: $(date -Im)" >> org-social.org
-echo ":END:" >> org-social.org
-echo "" >> org-social.org
-echo "This is my first post on Org-Social." >> org-social.org
-```
-
 The result will be:
 
 ```org
+#+TITLE: My Social Network
 #+AUTHOR: YourNick
+#+DESCRIPTION: A brief description about yourself
 
 * Posts
 
@@ -114,7 +115,7 @@ The result will be:
 :ID: 2025-04-28T12:00:00+01:00
 :END:
 
-This is my first post on Org-Social.
+This is my first post on Org-social.
 ```
 
 The datetime in the `ID` property is the unique identifier of each post. It must be in *ISO 8601 format*. The time zone, `+01:00`, isn't optional.
@@ -148,7 +149,6 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 ```org
 #+TITLE: My Social Network
 #+AUTHOR: Bob
-#+EMAIL: bob@example.com
 #+DESCRIPTION: I'm a software developer and I love open source.
 #+AVATAR: https://example.com/avatar.jpg
 #+WEBSITE: https://my-awesome-website.com
@@ -165,7 +165,6 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 |-------|-------------|----------|
 | `TITLE` | The title of your social feed | No |
 | `AUTHOR` | Your nickname. This is the name that will be displayed in posts. You cannot use spaces. | No |
-| `EMAIL` | Your email address | No |
 | `DESCRIPTION` | A short description about yourself | No |
 | `AVATAR` | The URL of your avatar image | No |
 | `WEBSITE` | Your personal website URL | No |
@@ -180,12 +179,7 @@ Posts are organized under headlines using Org Mode's hierarchical structure:
 
 ```org
 * Posts                           # Main section for posts
-** <timestamp> Post title        # Individual post
-*** Reply                        # Reply to a post
-**** Sub-reply                   # Nested reply
-
 * Polls                          # Polls section
-* Direct Messages                # Direct messages section
 * Media                          # Media files section
 ```
 
@@ -204,7 +198,6 @@ Each post uses Org Mode's properties drawer for metadata:
 :VERSION: 1.0
 :REPLY_TO: 2025-04-30T15:30:00+01:00
 :REPLY_URL: https://another-user.com/org-social.org
-:LOCATION: Madrid, Spain
 :MOOD: 😊
 :END:
 
@@ -228,7 +221,7 @@ Available properties:
 
 ## Mentions
 
-Org-Social uses Org Mode's link system for mentions. First, you can define a custom link type:
+Org-social uses Org Mode's link system for mentions. First, you can define a custom link type:
 
 ```org
 #+LINK: org-social https://
@@ -242,7 +235,7 @@ Then mention users using this format:
 :ID: 2025-05-01T12:00:00+01:00
 :END:
 
-Welcome to Org-Social [[org-social:bob@http://example.org/org-social.org][bob]]!
+Welcome to Org-social [[org-social:bob@http://example.org/org-social.org][bob]]!
 ```
 
 You can mention multiple users in a single post:
@@ -291,7 +284,7 @@ You can also use Org Mode's hierarchical structure for threaded conversations:
 :ID: 2025-05-01T12:00:00+01:00
 :END:
 
-What do you think about Org-Social?
+What do you think about Org-social?
 
 *** <2025-05-01 Thu 13:00> First reply
 :PROPERTIES:
@@ -347,7 +340,7 @@ Polls use Org Mode's checkbox lists with special properties:
 Choose your favorite:
 
 - [ ] Python
-- [ ] JavaScript  
+- [ ] JavaScript
 - [ ] PHP
 - [ ] Emacs Lisp
 ```
@@ -381,11 +374,11 @@ Use Org Mode's source blocks for sharing code:
 :TAGS: programming python
 :END:
 
-Here's a function to parse Org-Social feeds:
+Here's a function to parse Org-social feeds:
 
 #+BEGIN_SRC python
 def parse_org_social(file_path):
-	"""Parse an Org-Social file"""
+	"""Parse an Org-social file"""
 	with open(file_path, 'r') as f:
 		content = f.read()
 	# Implementation here
@@ -486,7 +479,7 @@ Or using a structured approach:
 
 Great content about AI research.
 
-** Bob  
+** Bob
 :PROPERTIES:
 :URL: https://bob.dev/org-social.org
 :LAST_CHECKED: <2025-05-01 Thu 09:30>
@@ -497,9 +490,9 @@ Excellent programming tutorials.
 
 ## Discoverability
 
-Because of the decentralised nature it is very difficult to discover new users. You have to think of it as a technology similar to email or RSS feeds. The natural flow to find new addresses, URLs, or nodes, is because you have been given the address or because you have seen a link on a website. Org-Social is the same. You have to share your address with your friends or on social media.
+Because of the decentralised nature it is very difficult to discover new users. You have to think of it as a technology similar to email or RSS feeds. The natural flow to find new addresses, URLs, or nodes, is because you have been given the address or because you have seen a link on a website. Org-social is the same. You have to share your address with your friends or on social media.
 
-To take your first steps you can start interacting with a list of people who have been adding their feed to an Org-Social feeds registry. You can also use community channels to find new users.
+To take your first steps you can start interacting with a list of people who have been adding their feed to an Org-social feeds registry. You can also use community channels to find new users.
 
 ## FAQ
 
@@ -552,13 +545,13 @@ You can use any web server that supports plain text files. GitHub Pages, Gitea, 
 Yes! You can use hashtags in your posts or use Org Mode's native tagging system:
 
 ```org
-** <2025-05-01 Thu 12:00> Hello Org-Social   :orgsocial:social:
+** <2025-05-01 Thu 12:00> Hello Org-social   :orgsocial:social:
 :PROPERTIES:
 :ID: 2025-05-01T12:00:00+01:00
 :TAGS: orgsocial social networking
 :END:
 
-Hi Org-Social! #orgsocial #socialnetwork
+Hi Org-social! #orgsocial #socialnetwork
 ```
 
 ### How often do I need to check the followers' feeds?
@@ -569,17 +562,17 @@ It depends on how you use it. Check the header `Last-Modified` to see if the fee
 
 Yes, you can modify or delete a post after you publish it. Just edit the file and upload it again keeping the original timestamp unchanged (otherwise you are making a new post and will break replies to your post). Clients will fetch the new file and update your profile.
 
-### Can I make an Org-Social client in my favorite programming language?
+### Can I make an Org-social client in my favorite programming language?
 
 Absolutely! Org Mode files are just text files with a well-defined structure. You can parse them using existing Org Mode parsers available in many languages, or write your own parser.
 
 ## Emacs Lisp Functions
 
-Here are some useful Emacs Lisp functions for working with Org-Social:
+Here are some useful Emacs Lisp functions for working with Org-social:
 
 ```emacs-lisp
 (defun org-social-new-post (content)
-  "Create a new Org-Social post"
+  "Create a new Org-social post"
   (interactive "sPost content: ")
   (let ((timestamp (format-time-string "<%Y-%m-%d %a %H:%M>")))
     (goto-char (point-max))
@@ -616,7 +609,7 @@ Here are some useful Emacs Lisp functions for working with Org-Social:
 
 ## Community
 
-Join the community to discuss Org-Social development and share your feeds:
+Join the community to discuss Org-social development and share your feeds:
 
 - IRC: #org-social on irc.libera.chat
 - Matrix: #org-social:matrix.org
@@ -624,4 +617,4 @@ Join the community to discuss Org-Social development and share your feeds:
 
 ## Icon
 
-You can create your own icon for Org-Social or use the Org Mode logo as inspiration, respecting its licensing terms.
+You can create your own icon for Org-social or use the Org Mode logo as inspiration, respecting its licensing terms.
