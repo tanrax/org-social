@@ -1,4 +1,4 @@
-;; org-social-timeline.el --- Generate timeline from Org-social feeds
+;; org-social.el --- Generate timeline from Org-social feeds
 
 (require 'url)
 (require 'org)
@@ -199,6 +199,6 @@
 (define-key org-mode-map (kbd "C-c s t") 'org-social-generate-timeline)
 (define-key org-mode-map (kbd "C-c s r") 'org-social-refresh-timeline)
 
-(provide 'org-social-timeline)
+(provide 'org-social)
 
 ;;; org-social-timeline.el ends here
