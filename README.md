@@ -202,7 +202,7 @@ Available properties:
 | `REPLY_URL` | URL of the feed being replied to |
 | `MOOD` | Mood indicator |
 
-## Mentions
+### Mentions
 
 Org-social uses Org Mode's link system for mentions. First, you can define a custom link type:
 
@@ -232,7 +232,7 @@ You can mention multiple users in a single post:
 Good morning [[org-social:http://example.org/social.org][bob]] and [[org-social:http://alice.com/social.org][alice]]! What are you doing today?
 ```
 
-## Multiline Posts
+### Multiline Posts
 
 Org Mode naturally supports multiline content. Unlike plain text formats, you can write posts with multiple paragraphs, lists, and rich formatting:
 
@@ -262,7 +262,7 @@ def parse_org_social(file_path):
 And much more!
 ```
 
-## Polls
+### Polls
 
 Polls use Org Mode's checkbox lists with special properties:
 
@@ -298,7 +298,7 @@ To vote on a poll, create a vote post:
 I choose Emacs Lisp as my favorite programming language!
 ```
 
-## Media Attachments
+### Media Attachments
 
 Reference media files using Org Mode's link syntax. You can link to images, videos, or any other media:
 
@@ -309,16 +309,6 @@ Reference media files using Org Mode's link syntax. You can link to images, vide
 :END:
 
 I want to share [[https://www.gnu.org/software/emacs/manual/pdf/emacs.pdf][Emacs Manual PDF]] with everyone.
-```
-
-## Follow Management
-
-Following other users is managed through the global metadata:
-
-```org
-#+FOLLOW: alice https://alice.com/social.org
-#+FOLLOW: bob https://bob.dev/social.org
-#+FOLLOW: charlie https://charlie.org/social.org
 ```
 
 ## Discoverability
