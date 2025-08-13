@@ -35,15 +35,15 @@ This is my first post on Org-social.
 :ID: 2025-02-03T23:05:00+01:00
 :END:
 
-Welcome to Org-social [[org-social:http://foo.org/org-social.org][foo]]!
+Welcome to Org-social [[org-social:http://foo.org/social.org][foo]]!
 
 **
 :PROPERTIES:
 :ID: 2025-02-07T16:00:00+01:00
-:REPLY_TO: foo@http://foo.org/org-social.org/#2025-02-03T23:05:00+01:00
+:REPLY_TO: http://foo.org/social.org/#2025-02-03T23:05:00+01:00
 :END:
 
-I forget to ask. Do you need help with Org-social [[org-social:http://foo.org/org-social.org][foo]]?
+I forget to ask. Do you need help with Org-social [[org-social:http://foo.org/social.org][foo]]?
 ```
 
 Now, upload the file to a web server and share the URL with your friends (`https://my-awesome-website.com/social.org`).
@@ -182,7 +182,7 @@ Each post uses Org Mode's properties drawer for metadata:
 :TAGS: programming social
 :CONTENT_WARNING: yes
 :CLIENT: org-social.el
-:REPLY_TO: http://foo.org/org-social.org/#2025-02-03T23:05:00+01:00
+:REPLY_TO: http://foo.org/social.org/#2025-02-03T23:05:00+01:00
 :MOOD: 😊
 :END:
 
@@ -207,7 +207,7 @@ Available properties:
 Org-social uses Org Mode's link system for mentions. First, you can define a custom link type:
 
 ```org
-[[org-social:http://example.org/org-social.org][username]]
+[[org-social:http://example.org/social.org][username]]
 ```
 
 Then mention users using this format:
@@ -218,7 +218,7 @@ Then mention users using this format:
 :ID: 2025-05-01T12:00:00+01:00
 :END:
 
-Welcome to Org-social [[org-social:http://example.org/org-social.org][bob]]!
+Welcome to Org-social [[org-social:http://example.org/social.org][bob]]!
 ```
 
 You can mention multiple users in a single post:
@@ -229,7 +229,7 @@ You can mention multiple users in a single post:
 :ID: 2025-05-01T12:00:00+01:00
 :END:
 
-Good morning [[org-social:http://example.org/org-social.org][bob]] and [[org-social:http://alice.com/org-social.org][alice]]! What are you doing today?
+Good morning [[org-social:http://example.org/social.org][bob]] and [[org-social:http://alice.com/social.org][alice]]! What are you doing today?
 ```
 
 ## Multiline Posts
@@ -291,27 +291,11 @@ To vote on a poll, create a vote post:
 **
 :PROPERTIES:
 :ID: 2025-05-01T13:00:00+01:00
-:REPLY_TO: http://example.org/org-social.org/#2025-05-01T12:00:00+01:00
+:REPLY_TO: http://example.org/social.org/#2025-05-01T12:00:00+01:00
 :POLL_OPTION: Emacs Lisp
 :END:
 
 I choose Emacs Lisp as my favorite programming language!
-```
-
-## Source Code Sharing
-
-Use Org Mode's source blocks for sharing code:
-
-```org
-** <2025-05-01 Thu 14:00> Sharing some code
-:PROPERTIES:
-:ID: 2025-05-01T14:00:00+01:00
-:TAGS: programming python
-:END:
-
-Here's a function to parse Org-social feeds:
-
-
 ```
 
 ## Media Attachments
