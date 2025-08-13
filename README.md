@@ -361,8 +361,4 @@ Yes, you can modify or delete a post after you publish it. Just edit the file an
 
 ### Is there a official client?
 
-No, at the moment there is no official client.
-
-## I want to contribute!
-
-You can contribute in [GitHub](https://github.com/tanrax/org-social).
+No, there is no official client at the moment. However, you can use [org-social.el](org-social.el) to read your followers' posts.
