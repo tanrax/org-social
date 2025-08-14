@@ -17,7 +17,7 @@ Edit the file and add your basic information:
 #+NICK: Bob
 #+DESCRIPTION: I'm a software developer and I love open source.
 #+AVATAR: https://my-awesome-website.com/avatar.jpg
-#+WEBSITE: https://my-awesome-website.com
+#+LINK: https://my-awesome-website.com
 #+FOLLOW: foo http://foo.org/social.org
 #+FOLLOW: jane https://jane.com/social.org
 
@@ -152,7 +152,8 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 #+NICK: Bob
 #+DESCRIPTION: I love Emacs.
 #+AVATAR: https://example.com/avatar.jpg
-#+WEBSITE: https://my-awesome-website.com
+#+LINK: https://my-awesome-website.com
+#+LINK: https://my-blog.com
 #+FOLLOW: jane https://jane.com/social.org
 #+FOLLOW: lucy https://lucy.com/social.org
 #+CONTACT: mailto:my-email@example.com
@@ -166,7 +167,7 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 | `NICK` | Your nickname. This is the name that will be displayed in posts. You cannot use spaces. | No |
 | `DESCRIPTION` | A short description about yourself | No |
 | `AVATAR` | The URL of your avatar image | No |
-| `WEBSITE` | Your personal website URL | No |
+| `LINK` | Links to your personal website or profile | Yes |
 | `FOLLOW` | Users you follow. Format: `nickname https://example.com/social.org` | Yes |
 | `CONTACT` | Contact information: Email, XMPP, Matrix, ActivityPub, etc. | Yes |
 
