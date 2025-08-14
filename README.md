@@ -13,8 +13,8 @@ M-x find-file RET social.org RET
 Edit the file and add your basic information:
 
 ```org
-#+TITLE: Bob's Social Network
-#+AUTHOR: Bob
+#+TITLE: Bob's journal
+#+NICK: Bob
 #+DESCRIPTION: I'm a software developer and I love open source.
 #+AVATAR: https://my-awesome-website.com/avatar.jpg
 #+WEBSITE: https://my-awesome-website.com
@@ -74,8 +74,8 @@ M-x find-file RET social.org RET
 ### 2. Edit the file and add your basic information
 
 ```org
-#+TITLE: My Social Network
-#+AUTHOR: YourNick
+#+TITLE: My journal
+#+NICK: YourNick
 #+DESCRIPTION: A brief description about yourself
 ```
 
@@ -105,8 +105,8 @@ The datetime in the `ID` property is the unique identifier of each post. It must
 The result will be:
 
 ```org
-#+TITLE: My Social Network
-#+AUTHOR: YourNick
+#+TITLE: My journal
+#+NICK: YourNick
 #+DESCRIPTION: A brief description about yourself
 
 * Posts
@@ -148,8 +148,8 @@ that can span multiple lines
 Global metadata is defined using Org Mode's standard keywords at the top of the file:
 
 ```org
-#+TITLE: My Social Network
-#+AUTHOR: Bob
+#+TITLE: My Awesome journal
+#+NICK: Bob
 #+DESCRIPTION: I love Emacs.
 #+AVATAR: https://example.com/avatar.jpg
 #+WEBSITE: https://my-awesome-website.com
@@ -163,7 +163,7 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 | Field | Description | Multiple |
 |-------|-------------|----------|
 | `TITLE` | The title of your social feed | No |
-| `AUTHOR` | Your nickname. This is the name that will be displayed in posts. You cannot use spaces. | No |
+| `NICK` | Your nickname. This is the name that will be displayed in posts. You cannot use spaces. | No |
 | `DESCRIPTION` | A short description about yourself | No |
 | `AVATAR` | The URL of your avatar image | No |
 | `WEBSITE` | Your personal website URL | No |
@@ -325,7 +325,7 @@ Yes, check this example:
 
 ```org
 #+TITLE: Bob's Blog Feed
-#+AUTHOR: Bob_feed
+#+NICK: Bob_feed
 #+DESCRIPTION: This is my blog feed.
 #+AVATAR: https://blog.example.com/avatar.jpg
 
