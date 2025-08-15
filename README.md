@@ -100,7 +100,10 @@ This is my first post on Org-social.
 
 The header `**` indicates a new post. The `:PROPERTIES:` drawer is used to add metadata to the post, such as the unique identifier (`ID`) and other optional properties.
 
-The datetime in the `ID` property is the unique identifier of each post. It must be in *ISO 8601 format*. The time zone, `+01:00`, isn't optional.
+The datetime in the `ID` property is the unique identifier of each post. It must be in a subset of the *RFC 3339 format*. matching any of the forms:
+
+* `####-##-##T##:##:##+##:##` e.g. `2025-12-30T20:30:15+00:00`, `2025-12-30T22:30:15+02:00`
+* `####-##-##T##:##:##-##:##` (not including an offset of `00:00`) e.g. `2025-12-30T18:30:15-02:00`
 
 The result will be:
 
