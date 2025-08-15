@@ -112,7 +112,7 @@
 									   :timestamp (org-social--parse-datetime post-id)
 									   :properties properties)
 									  posts)))))))
-		(nreverse posts)))
+		(nreverse posts))))
 
 (defun org-social--format-post (post)
 	"Format a POST for display in the timeline."
