@@ -18,11 +18,10 @@ Edit the file and add your basic information:
 #+DESCRIPTION: I'm a software developer and I love open source.
 #+AVATAR: https://my-awesome-website.com/avatar.jpg
 #+LINK: https://my-awesome-website.com
-#+FOLLOW: foo http://foo.org/social.org
-#+FOLLOW: jane https://jane.com/social.org
+#+FOLLOW_foo: http://foo.org/social.org
+#+FOLLOW_jane: https://jane.com/social.org
 
 * Posts
-
 **
 :PROPERTIES:
 :ID: 2024-12-12T12:00:00+01:00
@@ -113,7 +112,6 @@ The result will be:
 #+DESCRIPTION: A brief description about yourself
 
 * Posts
-
 **
 :PROPERTIES:
 :ID: 2025-04-28T12:00:00+01:00
@@ -334,7 +332,6 @@ Yes, check this example:
 #+AVATAR: https://blog.example.com/avatar.jpg
 
 * Posts
-
 **
 :PROPERTIES:
 :ID: 2025-05-01T12:00:00+01:00
@@ -365,8 +362,35 @@ Yes, you can modify or delete a post after you publish it. Just edit the file an
 
 ### Is there a official client?
 
-No, there is no official client at the moment. However, you can use [org-social.el](org-social.el) to read your followers' posts.
+Yes, [org-social.el](https://github.com/tanrax/org-social.el).
 
 ### Do you have a feed to share?
 
 Make a Pull Request by adding your URL to `registers.txt`.
+
+## Changelogs
+
+## 1.1
+
+- Removed the separation between `* Posts` and the first header 2 `**`.
+
+Before
+
+```org
+* Posts
+
+**
+```
+
+After
+
+```org
+* Posts
+**
+```
+
+Thanks [@confusedalex](https://github.com/confusedalex).
+
+## 1.0
+
+First draft
