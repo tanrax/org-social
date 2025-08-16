@@ -362,7 +362,7 @@ Yes, you can modify or delete a post after you publish it. Just edit the file an
 
 ### Is there a official client?
 
-No, there is no official client at the moment. However, you can use [org-social.el](org-social.el) to read your followers' posts.
+Yes, [org-social.el](https://github.com/tanrax/org-social.el).
 
 ### Do you have a feed to share?
 
