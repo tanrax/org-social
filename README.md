@@ -202,6 +202,8 @@ Available properties:
 | `CLIENT` | Client application used |
 | `REPLY_TO` | ID of post being replied to |
 | `REPLY_URL` | URL of the feed being replied to |
+| `POLL_END` | End time for polls (RFC 3339 format) |
+| `POLL_OPTION` | Selected option in a poll vote |
 | `MOOD` | Mood indicator |
 
 ### Mentions
@@ -269,8 +271,6 @@ And much more!
 Polls use Org Mode's checkbox lists with special properties:
 
 ```org
-* Polls
-
 **
 :PROPERTIES:
 :ID: 2025-05-01T12:00:00+01:00
