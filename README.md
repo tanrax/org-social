@@ -26,22 +26,22 @@ Edit the file and add your basic information:
 * Posts
 **
 :PROPERTIES:
-:ID: 2024-12-12T12:00:00+01:00
+:ID: 2024-12-12T12:00:00+0100
 :END:
 
 This is my first post on Org-social.
 
 **
 :PROPERTIES:
-:ID: 2025-02-03T23:05:00+01:00
+:ID: 2025-02-03T23:05:00+0100
 :END:
 
 Welcome to Org-social [[org-social:http://foo.org/social.org][foo]]!
 
 **
 :PROPERTIES:
-:ID: 2025-02-07T16:00:00+01:00
-:REPLY_TO: http://foo.org/social.org/#2025-02-03T23:05:00+01:00
+:ID: 2025-02-07T16:00:00+0100
+:REPLY_TO: http://foo.org/social.org/#2025-02-03T23:05:00+0100
 :END:
 
 I forget to ask. Do you need help with Org-social [[org-social:http://foo.org/social.org][foo]]?
@@ -93,7 +93,7 @@ Now you can add your first post.
 ```org
 **
 :PROPERTIES:
-:ID: 2025-04-28T12:00:00+01:00
+:ID: 2025-04-28T12:00:00+0100
 :END:
 
 This is my first post on Org-social.
@@ -104,7 +104,7 @@ The header `**` indicates a new post. The `:PROPERTIES:` drawer is used to add m
 The datetime in the `ID` property is the unique identifier of each post. It must be in a subset of the *RFC 3339 format*. matching any of the forms:
 
 * `####-##-##T##:##:##+##:##` e.g. `2025-12-30T20:30:15+00:00`, `2025-12-30T22:30:15+02:00`
-* `####-##-##T##:##:##-##:##` (not including an offset of `00:00`) e.g. `2025-12-30T18:30:15-02:00`
+* `####-##-##T##:##:##-####` (not including `:`) e.g. `2025-12-30T18:30:15-0200`
 
 The result will be:
 
@@ -116,7 +116,7 @@ The result will be:
 * Posts
 **
 :PROPERTIES:
-:ID: 2025-04-28T12:00:00+01:00
+:ID: 2025-04-28T12:00:00+0100
 :END:
 
 This is my first post on Org-social.
@@ -181,12 +181,11 @@ Each post uses Org Mode's properties drawer for metadata:
 ```org
 **
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+01:00
+:ID: 2025-05-01T12:00:00+0100
 :LANG: en
 :TAGS: programming social
-:CONTENT_WARNING: yes
 :CLIENT: org-social.el
-:REPLY_TO: http://foo.org/social.org/#2025-02-03T23:05:00+01:00
+:REPLY_TO: http://foo.org/social.org/#2025-02-03T23:05:00+0100
 :MOOD: 😊
 :END:
 
@@ -200,7 +199,6 @@ Available properties:
 | `ID` | Unique timestamp identifier (required) |
 | `LANG` | Language code of the post |
 | `TAGS` | Space-separated tags |
-| `CONTENT_WARNING` | Content warning label |
 | `CLIENT` | Client application used |
 | `REPLY_TO` | ID of post being replied to |
 | `REPLY_URL` | URL of the feed being replied to |
@@ -221,7 +219,7 @@ Then mention users using this format:
 ```org
 **
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+01:00
+:ID: 2025-05-01T12:00:00+0100
 :END:
 
 Welcome to Org-social [[org-social:http://example.org/social.org][bob]]!
@@ -232,7 +230,7 @@ You can mention multiple users in a single post:
 ```org
 **
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+01:00
+:ID: 2025-05-01T12:00:00+0100
 :END:
 
 Good morning [[org-social:http://example.org/social.org][bob]] and [[org-social:http://alice.com/social.org][alice]]! What are you doing today?
@@ -245,7 +243,7 @@ Org Mode naturally supports multiline content. Unlike plain text formats, you ca
 ```org
 ** <2025-05-01 Thu 12:00> A rich post
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+01:00
+:ID: 2025-05-01T12:00:00+0100
 :END:
 
 This is a multiline post with rich content.
@@ -275,8 +273,8 @@ Polls use Org Mode's checkbox lists with special properties:
 ```org
 **
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+01:00
-:POLL_END: 2025-05-01T13:00:00+01:00
+:ID: 2025-05-01T12:00:00+0100
+:POLL_END: 2025-05-01T13:00:00+0100
 :END:
 
 What's your favorite programming language?
@@ -294,8 +292,8 @@ To vote on a poll, create a vote post:
 ```org
 **
 :PROPERTIES:
-:ID: 2025-05-01T13:00:00+01:00
-:REPLY_TO: http://example.org/social.org/#2025-05-01T12:00:00+01:00
+:ID: 2025-05-01T13:00:00+0100
+:REPLY_TO: http://example.org/social.org/#2025-05-01T12:00:00+0100
 :POLL_OPTION: Emacs Lisp
 :END:
 
@@ -309,7 +307,7 @@ Reference media files using Org Mode's link syntax. You can link to images, vide
 ```org
 **
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+01:00
+:ID: 2025-05-01T12:00:00+0100
 :END:
 
 I want to share [[https://www.gnu.org/software/emacs/manual/pdf/emacs.pdf][Emacs Manual PDF]] with everyone.
@@ -336,7 +334,7 @@ Yes, check this example:
 * Posts
 **
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+01:00
+:ID: 2025-05-01T12:00:00+0100
 :TITLE: My awesome title
 :LANG: en
 :CATEGORY: programming
