@@ -41,7 +41,8 @@ Welcome to Org-social [[org-social:http://foo.org/social.org][foo]]!
 **
 :PROPERTIES:
 :ID: 2025-02-07T16:00:00+01:00
-:REPLY_TO: http://foo.org/social.org/#2025-02-03T23:05:00+01:00
+:REPLY_TO: 2025-02-03T23:05:00+01:00
+:REPLY_URL: http://foo.org/social.org
 :END:
 
 I forget to ask. Do you need help with Org-social [[org-social:http://foo.org/social.org][foo]]?
@@ -186,7 +187,8 @@ Each post uses Org Mode's properties drawer for metadata:
 :TAGS: programming social
 :CONTENT_WARNING: yes
 :CLIENT: org-social.el
-:REPLY_TO: http://foo.org/social.org/#2025-02-03T23:05:00+01:00
+:REPLY_TO: 2025-02-03T23:05:00+01:00
+:REPLY_URL: http://foo.org/social.org
 :MOOD: 😊
 :END:
 
@@ -295,7 +297,8 @@ To vote on a poll, create a vote post:
 **
 :PROPERTIES:
 :ID: 2025-05-01T13:00:00+01:00
-:REPLY_TO: http://example.org/social.org/#2025-05-01T12:00:00+01:00
+:REPLY_URL: http://example.org/social.org
+:REPLY_TO: 2025-05-01T12:00:00+01:00
 :POLL_OPTION: Emacs Lisp
 :END:
 
