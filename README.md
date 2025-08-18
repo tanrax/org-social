@@ -20,8 +20,8 @@ Edit the file and add your basic information:
 #+DESCRIPTION: I'm a software developer and I love open source.
 #+AVATAR: https://my-awesome-website.com/avatar.jpg
 #+LINK: https://my-awesome-website.com
-#+FOLLOW_foo: http://foo.org/social.org
-#+FOLLOW_jane: https://jane.com/social.org
+#+FOLLOW: http://foo.org/social.org
+#+FOLLOW: https://jane.com/social.org
 
 * Posts
 **
