@@ -41,7 +41,7 @@ Welcome to Org-social [[org-social:http://foo.org/social.org][foo]]!
 **
 :PROPERTIES:
 :ID: 2025-02-07T16:00:00+0100
-:REPLY_TO: http://foo.org/social.org/#2025-02-03T23:05:00+0100
+:REPLY_TO: http://foo.org/social.org#2025-02-03T23:05:00+0100
 :END:
 
 I forget to ask. Do you need help with Org-social [[org-social:http://foo.org/social.org][foo]]?
@@ -185,7 +185,7 @@ Each post uses Org Mode's properties drawer for metadata:
 :LANG: en
 :TAGS: programming social
 :CLIENT: org-social.el
-:REPLY_TO: http://foo.org/social.org/#2025-02-03T23:05:00+0100
+:REPLY_TO: http://foo.org/social.org#2025-02-03T23:05:00+0100
 :MOOD: 😊
 :END:
 
@@ -200,8 +200,7 @@ Available properties:
 | `LANG` | Language code of the post |
 | `TAGS` | Space-separated tags |
 | `CLIENT` | Client application used |
-| `REPLY_TO` | ID of post being replied to |
-| `REPLY_URL` | URL of the feed being replied to |
+| `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` e.g. `http://foo.org/social.org#2025-02-03T23:05:00+0100` |
 | `POLL_END` | End time for polls (RFC 3339 format) |
 | `POLL_OPTION` | Selected option in a poll vote |
 | `MOOD` | Mood indicator |
@@ -293,7 +292,7 @@ To vote on a poll, create a vote post:
 **
 :PROPERTIES:
 :ID: 2025-05-01T13:00:00+0100
-:REPLY_TO: http://example.org/social.org/#2025-05-01T12:00:00+0100
+:REPLY_TO: http://example.org/social.org#2025-05-01T12:00:00+0100
 :POLL_OPTION: Emacs Lisp
 :END:
 
@@ -368,6 +367,91 @@ Yes, [org-social.el](https://github.com/tanrax/org-social.el).
 
 Make a Pull Request by adding your URL to `registers.txt`.
 
+## Use cases
+
+### Make a new post
+
+You can make a new post by adding a new headline under the `* Posts` section. Use the `:ID:` property to set the unique identifier for the post.
+
+```org
+* Posts
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:00:00+0100
+:END:
+
+This is my new post on Org-social.
+```
+
+The other properties are optional.
+
+### Reply to a post
+
+To reply to a post, create a new headline with the `:REPLY_TO:` property set to the ID of the post you are replying to. This will create a link back to the original post.
+
+The format is: `receiver URL` + `#` + `ID of the post being replied to`.
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:30:00+0100
+:REPLY_TO: http://example-receiver.com/social.org#2025-05-01T12:00:00+0100
+:END:
+
+I agree with your point about the new feature. It will be very useful for many users.
+```
+
+### Make a poll
+
+To create a poll, use the `:POLL_END:` property to set the end time of the poll. Use a checkbox list to define the options.
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:00:00+0100
+:POLL_END: 2025-05-01T13:00:00+0100
+:END:
+
+Do you have a pet?
+
+- [ ] Cat
+- [ ] Dog
+- [ ] Fish
+- [ ] Bird
+```
+
+### Vote on a poll
+
+To vote on a poll, create a new post with the `:REPLY_TO:` property set to the ID of the poll post. Use the `:POLL_OPTION:` property to indicate your choice.
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:30:00+0100
+:REPLY_TO: http://example-poll.com/social.org#2025-05-01T12:00:00+0100
+:POLL_OPTION: Cat
+:END:
+
+Meow!
+```
+
+The content of the post can be anything you want, but it is recommended to keep it short and to the point.
+
+### Mention a user
+
+To mention a user, use the custom link format defined in the `LINK` property. This will create a link to the user's profile.
+
+The format is `[[org-social:URL of the user's social.org][nickname]]`
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:00:00+0100
+:END:
+
+Hello [[org-social:http://example-user.com/social.org][Alice]], how are you?
+```
+
 ## Changelogs
 
 ## 1.1
@@ -388,6 +472,8 @@ After
 * Posts
 **
 ```
+
+- Removed `:REPLY_URL:` property.
 
 Thanks [@confusedalex](https://github.com/confusedalex).
 
