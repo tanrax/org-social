@@ -364,7 +364,7 @@ Yes, you can modify or delete a post after you publish it. Just edit the file an
 
 Yes, [org-social.el](https://github.com/tanrax/org-social.el).
 
-### Do you have a feed to share?
+### Can I share or promote my social.org?
 
 Make a Pull Request by adding your URL to `registers.txt`.
 
