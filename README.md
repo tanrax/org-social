@@ -1,5 +1,7 @@
 # Org-social
 
+![Org social logo](org-social-logo.png)
+
 Org-social is a **decentralized social network** that runs on an **Org Mode** file over HTTP.
 
 [Official client](https://github.com/tanrax/org-social.el)
