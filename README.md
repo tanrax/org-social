@@ -1,8 +1,8 @@
-# Org social
+# Org Social
 
 ![Org social logo](org-social-logo.png)
 
-Org-social is a **decentralized social network** that runs on an **Org Mode** file over HTTP.
+Org Social is a **decentralized social network** that runs on an **Org Mode** file over HTTP.
 
 [Official client](https://github.com/tanrax/org-social.el)
 
@@ -31,14 +31,14 @@ Edit the file and add your basic information:
 :ID: 2024-12-12T12:00:00+0100
 :END:
 
-This is my first post on Org-social.
+This is my first post on Org Social.
 
 **
 :PROPERTIES:
 :ID: 2025-02-03T23:05:00+0100
 :END:
 
-Welcome to Org-social [[org-social:http://foo.org/social.org][foo]]!
+Welcome to Org Social [[org-social:http://foo.org/social.org][foo]]!
 
 **
 :PROPERTIES:
@@ -46,7 +46,7 @@ Welcome to Org-social [[org-social:http://foo.org/social.org][foo]]!
 :REPLY_TO: http://foo.org/social.org#2025-02-03T23:05:00+0100
 :END:
 
-I forget to ask. Do you need help with Org-social [[org-social:http://foo.org/social.org][foo]]?
+I forget to ask. Do you need help with Org Social [[org-social:http://foo.org/social.org][foo]]?
 ```
 
 Now, upload the file to a web server and share the URL with your friends (`https://my-awesome-website.com/social.org`).
@@ -55,13 +55,13 @@ Simple.
 
 ## Introduction
 
-Org-social is a decentralized social network that leverages the simplicity and power of Org Mode files. It allows users to create, share, and interact with posts in a human-readable format while maintaining compatibility with various text editors and tools. You can publish posts, make replies, mention other users, create polls or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
+Org Social is a decentralized social network that leverages the simplicity and power of Org Mode files. It allows users to create, share, and interact with posts in a human-readable format while maintaining compatibility with various text editors and tools. You can publish posts, make replies, mention other users, create polls or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
 
 It is heavily inspired by [twtxt](https://twtxt.readthedocs.io/en/stable/), [Texudus](https://texudus.com), and the extensions developed by the [Yarn community](https://twtxt.dev/). It takes the best of these specifications, eliminates complex parts, leverages Org Mode's native features, and keeps the premise that social networking should be simple, accessible to both humans and machines, and manageable with standard text editing tools.
 
 The values are:
 
-1. **Simplicity**: Org-social is a simple text file that you can edit with any Emacs or text editor.
+1. **Simplicity**: Org Social is a simple text file that you can edit with any Emacs or text editor.
 2. **Accessibility**: The feed can be read by humans and machines.
 3. **Decentralization**: You are a node in the network. The feed is hosted on a web server and can be accessed by anyone.
 4. **Org Philosophy**: Native Org Mode features are used to enhance the social experience, such as timestamps, properties, and links.
@@ -98,7 +98,7 @@ Now you can add your first post.
 :ID: 2025-04-28T12:00:00+0100
 :END:
 
-This is my first post on Org-social.
+This is my first post on Org Social.
 ```
 
 The header `**` indicates a new post. The `:PROPERTIES:` drawer is used to add metadata to the post, such as the unique identifier (`ID`) and other optional properties.
@@ -121,7 +121,7 @@ The result will be:
 :ID: 2025-04-28T12:00:00+0100
 :END:
 
-This is my first post on Org-social.
+This is my first post on Org Social.
 ```
 
 The file must be encoded with UTF-8 and should use LF (`\n`) as line separators.
@@ -209,7 +209,7 @@ Available properties:
 
 ### Mentions
 
-Org-social uses Org Mode's link system for mentions. First, you can define a custom link type:
+Org Social uses Org Mode's link system for mentions. First, you can define a custom link type:
 
 ```org
 [[org-social:http://example.org/social.org][username]]
@@ -223,7 +223,7 @@ Then mention users using this format:
 :ID: 2025-05-01T12:00:00+0100
 :END:
 
-Welcome to Org-social [[org-social:http://example.org/social.org][bob]]!
+Welcome to Org Social [[org-social:http://example.org/social.org][bob]]!
 ```
 
 You can mention multiple users in a single post:
@@ -257,7 +257,7 @@ I can include:
 
 #+BEGIN_SRC python
 def parse_org_social(file_path):
-	"""Parse an Org-social file"""
+	"""Parse an Org Social file"""
 	with open(file_path, 'r') as f:
 		content = f.read()
 	# Implementation here
@@ -316,9 +316,9 @@ I want to share [[https://www.gnu.org/software/emacs/manual/pdf/emacs.pdf][Emacs
 
 ## Discoverability
 
-Because of the decentralised nature it is very difficult to discover new users. You have to think of it as a technology similar to email or RSS feeds. The natural flow to find new addresses, URLs, or nodes, is because you have been given the address or because you have seen a link on a website. Org-social is the same. You have to share your address with your friends or on social media.
+Because of the decentralised nature it is very difficult to discover new users. You have to think of it as a technology similar to email or RSS feeds. The natural flow to find new addresses, URLs, or nodes, is because you have been given the address or because you have seen a link on a website. Org Social is the same. You have to share your address with your friends or on social media.
 
-To take your first steps you can start interacting with a list of people who have been adding their feed to an Org-social feeds registry. You can also use community channels to find new users.
+To take your first steps you can start interacting with a list of people who have been adding their feed to an Org Social feeds registry. You can also use community channels to find new users.
 
 ## FAQ
 
