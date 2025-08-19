@@ -1,4 +1,4 @@
-# Org-social
+# Org social
 
 ![Org social logo](org-social-logo.png)
 
