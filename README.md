@@ -4,7 +4,8 @@
 
 Org Social is a **decentralized social network** that runs on an **Org Mode** file over HTTP.
 
-[Official client](https://github.com/tanrax/org-social.el)
+- [Official client](https://github.com/tanrax/org-social.el)
+- [Other clients and libraries](https://github.com/tanrax/awesome-org-social/)
 
 ## Quickstart
 
