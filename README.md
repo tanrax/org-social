@@ -350,9 +350,14 @@ This is my awesome article content!
 
 Yes. You can use the HTTP header `Content-Range` with `Content-Length` to paginate the feed. Check the [HTTP Range Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) documentation.
 
-### What is the best way to host my feed?
+### Where can I host my `social.org` file?
 
-You can use any web server that supports plain text files. GitHub Pages, Gitea, or any other service that allows you to host plain text files. You can also use a self-hosted solution like [Nginx](https://www.nginx.com/) or [Apache](https://httpd.apache.org/).
+You can use any web server that supports plain text files.
+
+- Static hosting services: Tiiny Host, Static.run, Netlify, Vercel, Cloudflare Pages, etc.
+- Repositories: GitHub Pages, Gitea, or any other service that allows you to host plain text files.
+- Self-hosted: [Nginx](https://www.nginx.com/), [Apache](https://httpd.apache.org/) or [Caddy](https://caddyserver.com/).
+- Clouds: Dropbox, Google Drive, OneDrive, etc, but make sure they support direct links to plain text files.
 
 ### How often do I need to check the followers' feeds?
 
@@ -364,7 +369,7 @@ Yes, you can modify or delete a post after you publish it. Just edit the file an
 
 ### Is there a official client?
 
-Yes, [org-social.el](https://github.com/tanrax/org-social.el).
+Yes, [org-social.el](https://github.com/tanrax/org-social.el). Check [Awesome Org Social](https://github.com/tanrax/awesome-org-social/) for more clients and libraries.
 
 ### Can I share or promote my social.org?
 
@@ -455,6 +460,10 @@ The format is `[[org-social:URL of the user's social.org][nickname]]`
 Hello [[org-social:http://example-user.com/social.org][Alice]], how are you?
 ```
 
+## Community
+
+IRC channel: `#org-social` on Libera.Chat
+
 ## Changelogs
 
 ## 1.1
@@ -483,3 +492,7 @@ Thanks [@confusedalex](https://github.com/confusedalex).
 ## 1.0
 
 First draft
+
+## Thanks
+
+Thanks to all the people who have contributed to this project by reporting issues, making suggestions, or simply using it. ❤
