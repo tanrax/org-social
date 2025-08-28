@@ -50,13 +50,15 @@ Welcome to Org Social [[org-social:http://foo.org/social.org][foo]]!
 I forget to ask. Do you need help with Org Social [[org-social:http://foo.org/social.org][foo]]?
 ```
 
-Now, upload the file to a web server and share the URL with your friends (`https://my-awesome-website.com/social.org`).
+Now, upload the file to a web server and share the URL with your friends (`https://my-awesome-website.com/social.org`). Don't have your own hosting? [Check this section](#where-can-i-host-my-socialorg-file).
 
 Simple.
 
 ## Introduction
 
-Org Social is a decentralized social network that leverages the simplicity and power of Org Mode files. It allows users to create, share, and interact with posts in a human-readable format while maintaining compatibility with various text editors and tools. You can publish posts, make replies, mention other users, create polls or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
+Org Social is a decentralized social network that leverages the simplicity and power of Org Mode files.
+
+It allows users to create, share, and interact with posts in a human-readable format while maintaining compatibility with various text editors and tools. You can publish posts, make replies, mention other users, create polls or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
 
 It is heavily inspired by [twtxt](https://twtxt.readthedocs.io/en/stable/), [Texudus](https://texudus.com), and the extensions developed by the [Yarn community](https://twtxt.dev/). It takes the best of these specifications, eliminates complex parts, leverages Org Mode's native features, and keeps the premise that social networking should be simple, accessible to both humans and machines, and manageable with standard text editing tools.
 
@@ -317,9 +319,9 @@ I want to share [[https://www.gnu.org/software/emacs/manual/pdf/emacs.pdf][Emacs
 
 ## Discoverability
 
-Because of the decentralised nature it is very difficult to discover new users. You have to think of it as a technology similar to email or RSS feeds. The natural flow to find new addresses, URLs, or nodes, is because you have been given the address or because you have seen a link on a website. Org Social is the same. You have to share your address with your friends or on social media.
+Because of the decentralised nature it is very difficult to discover new users. You have to think of it as a technology similar to email or RSS feeds. The natural flow to find new addresses, URLs, or nodes, is because you have been given the address or because you have seen a link on a website. Org Social is the same. You have to share your address with your friends or on social media. The more you interact with the community, the more Org social files you can discover.
 
-To take your first steps you can start interacting with a list of people who have been adding their feed to an Org Social feeds registry. You can also use community channels to find new users.
+If you want the community to discover you quickly, make a Pull Request by adding your URL to `registers.txt` in this repository.
 
 ## FAQ
 
