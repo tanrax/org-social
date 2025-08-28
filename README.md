@@ -186,7 +186,6 @@ Each post uses Org Mode's properties drawer for metadata:
 :PROPERTIES:
 :ID: 2025-05-01T12:00:00+0100
 :LANG: en
-:TAGS: programming social
 :CLIENT: org-social.el
 :REPLY_TO: http://foo.org/social.org#2025-02-03T23:05:00+0100
 :MOOD: 😊
@@ -201,12 +200,18 @@ Available properties:
 |----------|-------------|
 | `ID` | Unique timestamp identifier (required) |
 | `LANG` | Language code of the post |
-| `TAGS` | Space-separated tags |
 | `CLIENT` | Client application used |
 | `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` e.g. `http://foo.org/social.org#2025-02-03T23:05:00+0100` |
 | `POLL_END` | End time for polls (RFC 3339 format) |
 | `POLL_OPTION` | Selected option in a poll vote |
 | `MOOD` | Mood indicator |
+
+#### Tags
+For tags the Org Mode tag syntax will be used.
+
+```org
+**                                                      :programming:social:
+```
 
 ### Mentions
 
