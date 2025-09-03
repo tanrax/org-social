@@ -162,8 +162,8 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 #+AVATAR: https://example.com/avatar.jpg
 #+LINK: https://my-awesome-website.com
 #+LINK: https://my-blog.com
-#+FOLLOW: jane https://jane.com/social.org
-#+FOLLOW: lucy https://lucy.com/social.org
+#+FOLLOW: myBestFriend https://jane.com/social.org
+#+FOLLOW: https://lucy.com/social.org
 #+CONTACT: mailto:my-email@example.com
 #+CONTACT: xmpp:my@account.com
 #+CONTACT: https://mastodon.social/@my-account
@@ -176,7 +176,7 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 | `DESCRIPTION` | A short description about yourself | No |
 | `AVATAR` | The URL of your avatar image | No |
 | `LINK` | Links to your personal website or profile | Yes |
-| `FOLLOW` | Users you follow. Format: `nickname https://example.com/social.org` | Yes |
+| `FOLLOW` | Users you follow. Format: <nickname to remember (Optional)> <feed url> `https://example.com/social.org` or `myBestFriend https://example.com/social.org`. Not to be confused with the user-defined nickname. | Yes |
 | `CONTACT` | Contact information: Email, XMPP, Matrix, ActivityPub, etc. | Yes |
 
 ### Post Metadata
