@@ -174,7 +174,7 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 | `TITLE` | The title of your social feed | No |
 | `NICK` | Your nickname. This is the name that will be displayed in posts. You cannot use spaces. | No |
 | `DESCRIPTION` | A short description about yourself | No |
-| `AVATAR` | The URL of your avatar image | No |
+| `AVATAR` | The URL of your avatar image. Square image with at least 128x128 pixels in JPG or PNG format. | No |
 | `LINK` | Links to your personal website or profile | Yes |
 | `FOLLOW` | Users you follow. Format: <nickname to remember (Optional)> <feed url> `https://example.com/social.org` or `myBestFriend https://example.com/social.org`. Not to be confused with the user-defined nickname. | Yes |
 | `CONTACT` | Contact information: Email, XMPP, Matrix, ActivityPub, etc. | Yes |
@@ -467,6 +467,10 @@ Hello [[org-social:http://example-user.com/social.org][Alice]], how are you?
 IRC channel: `#org-social` on Libera.Chat
 
 ## Changelogs
+
+### 1.2
+
+- Avatar image must be at least 128x128 pixels in JPG or PNG format.
 
 ## 1.1
 
