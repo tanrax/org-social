@@ -411,6 +411,18 @@ The format is: `receiver URL` + `#` + `ID of the post being replied to`.
 I agree with your point about the new feature. It will be very useful for many users.
 ```
 
+If you just want to leave a reaction on a post: ❤, ⭐, 🚀, 👍... You can use `:MOOD:` with the emoji and leave the body blank.
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:30:00+0100
+:REPLY_TO: http://example-receiver.com/social.org#2025-05-01T12:00:00+0100
+:MOOD: ❤
+:END:
+
+```
+
 ### Make a poll
 
 To create a poll, use the `:POLL_END:` property to set the end time of the poll. Use a checkbox list to define the options.
