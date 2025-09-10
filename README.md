@@ -187,6 +187,7 @@ Each post uses Org Mode's properties drawer for metadata:
 **
 :PROPERTIES:
 :ID: 2025-05-01T12:00:00+0100
+:TITLE: A post with metadata
 :LANG: en
 :TAGS: programming social
 :CLIENT: org-social.el
@@ -202,6 +203,7 @@ Available properties:
 | Property | Description |
 |----------|-------------|
 | `ID` | Unique timestamp identifier (required) |
+| `TITLE` | A post's title/short summary |
 | `LANG` | Language code of the post |
 | `TAGS` | Space-separated tags |
 | `CLIENT` | Client application used |
