@@ -323,7 +323,7 @@ Because of the decentralised nature it is very difficult to discover new users. 
 
 If you want the community to discover you quickly, make a Pull Request by adding your URL to `registers.txt` in this repository.
 
-Check [Org Social Rely](https://github.com/tanrax/org-social?tab=readme-ov-file#org-social-rely) for a more advanced way to be discovered.
+Check [Org Social Relay](https://github.com/tanrax/org-social?tab=readme-ov-file#org-social-rely) for a more advanced way to be discovered.
 
 ## FAQ
 
@@ -476,11 +476,11 @@ The format is `[[org-social:URL of the user's social.org][nickname]]`
 Hello [[org-social:http://example-user.com/social.org][Alice]], how are you?
 ```
 
-## Org Social Rely
+## Org Social Relay
 
-Due to the decentralised nature of Org Social, it is not possible to receive mentions, replies or read threads from users you do not follow. Unless you use *Org Social Rely*.
+Due to the decentralised nature of Org Social, it is not possible to receive mentions, replies or read threads from users you do not follow. Unless you use *Org Social Relay*.
 
-*Org Social Rely* is a P2P system that acts as an intermediary between all Org Social files. It scans the network, creating an index of users, mentions, replies, groups and threads. This allows you to:
+*Org Social Relay* is a P2P system that acts as an intermediary between all Org Social files. It scans the network, creating an index of users, mentions, replies, groups and threads. This allows you to:
 
 - Receive mentions and replies.
 - Have a more comprehensive notification system.
@@ -488,11 +488,11 @@ Due to the decentralised nature of Org Social, it is not possible to receive men
 - Perform searches (tags and full text).
 - Participate in groups.
 
-First, you will need a [Rely-compatible client](https://github.com/tanrax/awesome-org-social/).
+First, you will need a [Relay-compatible client](https://github.com/tanrax/awesome-org-social/).
 
-Then you can set up your own instance of [Social Org Rely](https://github.com/tanrax/org-social-relay). Your node will automatically connect to other active Rely nodes and work with them to remove load from the network and share information. The more Rely nodes there are, the better the experience will be for everyone. It is currently an alpha technology that only allows participation by invitation. When the project is more mature, it will be open to everyone.
+Then you can set up your own instance of [Social Org Relay](https://github.com/tanrax/org-social-relay). Your node will automatically connect to other active Relay nodes and work with them to remove load from the network and share information. The more Relay nodes there are, the better the experience will be for everyone. It is currently an alpha technology that only allows participation by invitation. When the project is more mature, it will be open to everyone.
 
-Otherwise, you can use a [public Rely node](/org-social-relay-list.txt).
+Otherwise, you can use a [public Relay node](/org-social-relay-list.txt).
 
 ## Community
 
