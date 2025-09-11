@@ -7,6 +7,24 @@ Org Social is a **decentralized social network** that runs on an **Org Mode** fi
 - [Official client](https://github.com/tanrax/org-social.el)
 - [Other clients and libraries](https://github.com/tanrax/awesome-org-social/)
 
+Explore the syntax and join the community!
+
+- [Quickstart](#quickstart)
+- [Introduction](#introduction)
+- [Tutorial](#tutorial)
+- [Syntax](#syntax)
+- [Discoverability](#discoverability)
+- [FAQ](#faq)
+- [Use cases](#use-cases)
+	- [Make a new post](#make-a-new-post)
+	- [Reply to a post](#reply-to-a-post)
+	- [Make a poll](#make-a-poll)
+	- [Vote on a poll](#vote-on-a-poll)
+	- [Mention a user](#mention-a-user)
+- [Org Social Relay](#org-social-relay)
+- [Community](#community)
+- [Changelogs](#changelogs)
+
 ## Quickstart
 
 Create a file called `social.org`.
