@@ -474,6 +474,24 @@ The format is `[[org-social:URL of the user's social.org][nickname]]`
 Hello [[org-social:http://example-user.com/social.org][Alice]], how are you?
 ```
 
+## Org Social Rely
+
+Due to the decentralised nature of Org Social, it is not possible to receive mentions, replies or read threads from users you do not follow. Unless you use *Org Social Rely*.
+
+*Org Social Rely* is a P2P system that acts as an intermediary between all Org Social files. It scans the network, creating an index of users, mentions, replies, groups and threads. This allows you to:
+
+- Receive mentions and replies.
+- Have a more comprehensive notification system.
+- Read or participate in threads.
+- Perform searches (tags and full text).
+- Participate in groups.
+
+First, you will need a [Rely-compatible client](https://github.com/tanrax/awesome-org-social/).
+
+Then you can set up your own instance of [Social Org Rely](https://github.com/tanrax/org-social-relay). Your node will automatically connect to other active Rely nodes and work with them to remove load from the network and share information. The more Rely nodes there are, the better the experience will be for everyone. It is currently an alpha technology that only allows participation by invitation. When the project is more mature, it will be open to everyone.
+
+Otherwise, you can use a public Rely node.
+
 ## Community
 
 IRC channel: `#org-social` on Libera.Chat
