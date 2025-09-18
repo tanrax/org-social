@@ -15,3 +15,4 @@ https://cybervalley.org/org-social-leandro/org-social.org
 https://concavi.net/social.org
 http://gemini.quietplace.xyz/~razzlom/social.org
 https://notxor.nueva-actitud.org/social.org
+https://codeberg.org/mester/CosasSociales/raw/branch/main/social.org
