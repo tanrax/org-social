@@ -13,7 +13,7 @@ Explore the syntax and join the community!
 
 - [Quickstart](#quickstart)
     - [Basic: read-only](#-basic-read-only)
-    - [You write, reply and read](#-you-write-reply-and-read)
+    - [You write, reply and read](#%EF%B8%8F-you-write-reply-and-read)
 - [Introduction](#introduction)
 - [Tutorial](#tutorial)
 - [Syntax](#syntax)
@@ -63,7 +63,7 @@ You will find a list of active feeds. Add the ones you want to follow with the `
 
 Now you can read your friends' posts using your favorite Org Social client.
 
-### ✍ You write, reply and read
+### ✍️ You write, reply and read
 
 Create a file called `social.org` and add your basic information and your first post.
 
