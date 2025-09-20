@@ -27,13 +27,41 @@ Explore the syntax and join the community!
 
 ## Quickstart
 
-Create a file called `social.org`.
+You decide how much you want to interact with the community:
+
+### 👀 Basic: read-only
+
+Create a file called `social.org` and add the followers you want to read to your list.
 
 ```sh
 M-x find-file RET social.org RET
 ```
 
 Edit the file and add your basic information:
+
+```org
+#+TITLE: Bob's journal
+```
+
+Who to follow? You can start with:
+
+```sh
+curl https://org-social-relay.andros.dev/feeds/
+```
+
+You will find a list of active feeds. Add the ones you want to follow with the `#+FOLLOW:` keyword.
+
+```org
+#+TITLE: Bob's journal
+#+FOLLOW: http://foo.org/social.org
+#+FOLLOW: https://jane.com/social.org
+```
+
+Now you can read your friends' posts using your favorite Org Social client.
+
+### ✍️ You write, reply and read
+
+Create a file called `social.org` and add your basic information and your first post.
 
 ```org
 #+TITLE: Bob's journal
@@ -50,27 +78,16 @@ Edit the file and add your basic information:
 :ID: 2024-12-12T12:00:00+0100
 :END:
 
-This is my first post on Org Social.
-
-**
-:PROPERTIES:
-:ID: 2025-02-03T23:05:00+0100
-:END:
-
-Welcome to Org Social [[org-social:http://foo.org/social.org][foo]]!
-
-**
-:PROPERTIES:
-:ID: 2025-02-07T16:00:00+0100
-:REPLY_TO: http://foo.org/social.org#2025-02-03T23:05:00+0100
-:END:
-
-I forget to ask. Do you need help with Org Social [[org-social:http://foo.org/social.org][foo]]?
+Hello Org Social!
 ```
 
-Now, upload the file to a web server and share the URL with your friends (`https://my-awesome-website.com/social.org`). Don't have your own hosting? [Check this section](#where-can-i-host-my-socialorg-file).
+Upload the file to a web server and share the URL with your friends (`https://my-awesome-website.com/social.org`). Don't have your own hosting? [Check this section](#where-can-i-host-my-socialorg-file).
 
 Simple.
+
+Now you can share your URL with your friends so they can follow you.
+
+If you want to interact more with the community, check the [Use cases](#use-cases) section or use a Org Social client.
 
 ## Introduction
 
