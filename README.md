@@ -199,6 +199,8 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 #+LINK: https://my-blog.com
 #+FOLLOW: myBestFriend https://jane.com/social.org
 #+FOLLOW: https://lucy.com/social.org
+#+GROUP: emacs https://example-relay.com
+#+GROUP: org-mode https://example-relay.com
 #+CONTACT: mailto:my-email@example.com
 #+CONTACT: xmpp:my@account.com
 #+CONTACT: https://mastodon.social/@my-account
@@ -212,6 +214,7 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 | `AVATAR` | The URL of your avatar image. Square image with at least 128x128 pixels in JPG or PNG format. | No |
 | `LINK` | Links to your personal website or profile | Yes |
 | `FOLLOW` | Users you follow. Format: <nickname to remember (Optional)> <feed url> `https://example.com/social.org` or `myBestFriend https://example.com/social.org`. Not to be confused with the user-defined nickname. | Yes |
+| `GROUP` | Group you wish to subscribe to. Format: <group name> <relay url> `emacs https://example-relay.com` | Yes |
 | `CONTACT` | Contact information: Email, XMPP, Matrix, ActivityPub, etc. | Yes |
 
 ### Post Metadata
@@ -226,6 +229,7 @@ Each post uses Org Mode's properties drawer for metadata:
 :TAGS: programming social
 :CLIENT: org-social.el
 :REPLY_TO: http://foo.org/social.org#2025-02-03T23:05:00+0100
+:GROUP: emacs https://example-relay.com
 :MOOD: 😊
 :END:
 
@@ -243,6 +247,7 @@ Available properties:
 | `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` e.g. `http://foo.org/social.org#2025-02-03T23:05:00+0100` |
 | `POLL_END` | End time for polls (RFC 3339 format) |
 | `POLL_OPTION` | Selected option in a poll vote |
+| `GROUP` | Group the post belongs to. Format: <group name> <relay url> `emacs https://example-relay.com` |
 | `MOOD` | Mood indicator |
 
 ### Mentions
@@ -434,6 +439,19 @@ This is my new post on Org-social.
 
 The other properties are optional.
 
+If you want it to be published in a group, use the `:GROUP:` property.
+
+```org
+* Posts
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:00:00+0100
+:GROUP: emacs https://example-relay.com
+:END:
+
+This is my new post on Org-social in the emacs group.
+```
+
 ### Reply to a post
 
 To reply to a post, create a new headline with the `:REPLY_TO:` property set to the ID of the post you are replying to. This will create a link back to the original post.
@@ -536,6 +554,11 @@ Otherwise, you can use a [public Relay node](/org-social-relay-list.txt).
 IRC channel: `#org-social` on Libera.Chat
 
 ## Changelogs
+
+## 1.3
+
+- Added `:MOOD:` property to express reactions to posts.
+- Added `:GROUP:` property to subscribe to groups and publish posts in groups.
 
 ### 1.2
 
