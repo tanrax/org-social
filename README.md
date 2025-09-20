@@ -12,6 +12,8 @@ You can create posts, interact with groups, make replies, mention other users, c
 Explore the syntax and join the community!
 
 - [Quickstart](#quickstart)
+    - [Basic: read-only](#-basic-read-only)
+    - [You write, reply and read](#-you-write-reply-and-read)
 - [Introduction](#introduction)
 - [Tutorial](#tutorial)
 - [Syntax](#syntax)
@@ -87,9 +89,17 @@ Upload the file to a web server and share the URL with your friends (`https://my
 
 Simple.
 
-Now you can share your URL with your friends so they can follow you.
+Now you can share your URL with your friends so they can follow you. Do you want strangers to discover you? You can register your URL on a Relay.
 
-If you want to interact more with the community, check the [Use cases](#use-cases) section or use a Org Social client.
+Run this command:
+
+```sh
+curl -X POST https://org-social-relay.andros.dev/feeds/ -d '{"feed": "https://my-awesome-website.com/social.org"}' -H "Content-Type: application/json"
+```
+
+(Replace `https://my-awesome-website.com/social.org` with your actual URL.) You needs to do it only once.
+
+Now it's your turn to learn how to interact with Org Social's syntax and the community. Check the [Use cases](#use-cases) section or use a Org Social client.
 
 ## Introduction
 
