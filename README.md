@@ -4,6 +4,8 @@
 
 Org Social is a **decentralized social network** that runs on an **Org Mode** file over HTTP.
 
+You can create posts, interact with groups, make replies, mention other users, create polls, or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
+
 - [Official client](https://github.com/tanrax/org-social.el)
 - [Other clients and libraries](https://github.com/tanrax/awesome-org-social/)
 
@@ -27,13 +29,41 @@ Explore the syntax and join the community!
 
 ## Quickstart
 
-Create a file called `social.org`.
+You decide how much you want to interact with the community:
+
+### 👀 Basic: read-only
+
+Create a file called `social.org` and add the followers you want to read to your list.
 
 ```sh
 M-x find-file RET social.org RET
 ```
 
 Edit the file and add your basic information:
+
+```org
+#+TITLE: Bob's journal
+```
+
+Who to follow? You can start with:
+
+```sh
+curl https://org-social-relay.andros.dev/feeds/
+```
+
+You will find a list of active feeds. Add the ones you want to follow with the `#+FOLLOW:` keyword.
+
+```org
+#+TITLE: Bob's journal
+#+FOLLOW: http://foo.org/social.org
+#+FOLLOW: https://jane.com/social.org
+```
+
+Now you can read your friends' posts using your favorite Org Social client.
+
+### ✍️ You write, reply and read
+
+Create a file called `social.org` and add your basic information and your first post.
 
 ```org
 #+TITLE: Bob's journal
@@ -50,33 +80,22 @@ Edit the file and add your basic information:
 :ID: 2024-12-12T12:00:00+0100
 :END:
 
-This is my first post on Org Social.
-
-**
-:PROPERTIES:
-:ID: 2025-02-03T23:05:00+0100
-:END:
-
-Welcome to Org Social [[org-social:http://foo.org/social.org][foo]]!
-
-**
-:PROPERTIES:
-:ID: 2025-02-07T16:00:00+0100
-:REPLY_TO: http://foo.org/social.org#2025-02-03T23:05:00+0100
-:END:
-
-I forget to ask. Do you need help with Org Social [[org-social:http://foo.org/social.org][foo]]?
+Hello Org Social!
 ```
 
-Now, upload the file to a web server and share the URL with your friends (`https://my-awesome-website.com/social.org`). Don't have your own hosting? [Check this section](#where-can-i-host-my-socialorg-file).
+Upload the file to a web server and share the URL with your friends (`https://my-awesome-website.com/social.org`). Don't have your own hosting? [Check this section](#where-can-i-host-my-socialorg-file).
 
 Simple.
+
+Now you can share your URL with your friends so they can follow you.
+
+If you want to interact more with the community, check the [Use cases](#use-cases) section or use a Org Social client.
 
 ## Introduction
 
 Org Social is a decentralized social network that leverages the simplicity and power of Org Mode files.
 
-It allows users to create, share, and interact with posts in a human-readable format while maintaining compatibility with various text editors and tools. You can publish posts, make replies, mention other users, create polls or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
+It allows users to create, share, and interact with posts in a human-readable format while maintaining compatibility with various text editors and tools. You can publish posts, interact with groups, make replies, mention other users, create polls or personalize your profile.
 
 It is heavily inspired by [twtxt](https://twtxt.readthedocs.io/en/stable/), [Texudus](https://texudus.com), and the extensions developed by the [Yarn community](https://twtxt.dev/). It takes the best of these specifications, eliminates complex parts, leverages Org Mode's native features, and keeps the premise that social networking should be simple, accessible to both humans and machines, and manageable with standard text editing tools.
 
@@ -182,6 +201,8 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 #+LINK: https://my-blog.com
 #+FOLLOW: myBestFriend https://jane.com/social.org
 #+FOLLOW: https://lucy.com/social.org
+#+GROUP: emacs https://example-relay.com
+#+GROUP: org-mode https://example-relay.com
 #+CONTACT: mailto:my-email@example.com
 #+CONTACT: xmpp:my@account.com
 #+CONTACT: https://mastodon.social/@my-account
@@ -195,6 +216,7 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 | `AVATAR` | The URL of your avatar image. Square image with at least 128x128 pixels in JPG or PNG format. | No |
 | `LINK` | Links to your personal website or profile | Yes |
 | `FOLLOW` | Users you follow. Format: <nickname to remember (Optional)> <feed url> `https://example.com/social.org` or `myBestFriend https://example.com/social.org`. Not to be confused with the user-defined nickname. | Yes |
+| `GROUP` | Group you wish to subscribe to. Format: <group name> <relay url> `emacs https://example-relay.com` | Yes |
 | `CONTACT` | Contact information: Email, XMPP, Matrix, ActivityPub, etc. | Yes |
 
 ### Post Metadata
@@ -209,6 +231,7 @@ Each post uses Org Mode's properties drawer for metadata:
 :TAGS: programming social
 :CLIENT: org-social.el
 :REPLY_TO: http://foo.org/social.org#2025-02-03T23:05:00+0100
+:GROUP: emacs https://example-relay.com
 :MOOD: 😊
 :END:
 
@@ -226,6 +249,7 @@ Available properties:
 | `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` e.g. `http://foo.org/social.org#2025-02-03T23:05:00+0100` |
 | `POLL_END` | End time for polls (RFC 3339 format) |
 | `POLL_OPTION` | Selected option in a poll vote |
+| `GROUP` | Group the post belongs to. Format: <group name> <relay url> `emacs https://example-relay.com` |
 | `MOOD` | Mood indicator |
 
 ### Mentions
@@ -339,9 +363,15 @@ I want to share [[https://www.gnu.org/software/emacs/manual/pdf/emacs.pdf][Emacs
 
 Because of the decentralised nature it is very difficult to discover new users. You have to think of it as a technology similar to email or RSS feeds. The natural flow to find new addresses, URLs, or nodes, is because you have been given the address or because you have seen a link on a website. Org Social is the same. You have to share your address with your friends or on social media. The more you interact with the community, the more Org social files you can discover.
 
-If you want the community to discover you quickly, make a Pull Request by adding your URL to `registers.txt` in this repository.
+However, you have an alternative solution. You can register your feed in a public [Org Social Relay](https://github.com/tanrax/org-social?tab=readme-ov-file#org-social-relay) Node.
 
-Check [Org Social Relay](https://github.com/tanrax/org-social?tab=readme-ov-file#org-social-relay) for a more advanced way to be discovered.
+For example:
+
+```sh
+curl -X POST https://org-social-relay.andros.dev/feeds/ -d '{"feed": "https://example.com/social.org"}' -H "Content-Type: application/json"
+```
+
+This will share your feed with other public nodes and make it easier for others to discover you.
 
 ## FAQ
 
@@ -393,10 +423,6 @@ Yes, you can modify or delete a post after you publish it. Just edit the file an
 
 Yes, [org-social.el](https://github.com/tanrax/org-social.el). Check [Awesome Org Social](https://github.com/tanrax/awesome-org-social/) for more clients and libraries.
 
-### Can I share or promote my social.org?
-
-Make a Pull Request by adding your URL to `registers.txt`.
-
 ## Use cases
 
 ### Make a new post
@@ -414,6 +440,19 @@ This is my new post on Org-social.
 ```
 
 The other properties are optional.
+
+If you want it to be published in a group, use the `:GROUP:` property.
+
+```org
+* Posts
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:00:00+0100
+:GROUP: emacs https://example-relay.com
+:END:
+
+This is my new post on Org-social in the emacs group.
+```
 
 ### Reply to a post
 
@@ -517,6 +556,11 @@ Otherwise, you can use a [public Relay node](/org-social-relay-list.txt).
 IRC channel: `#org-social` on Libera.Chat
 
 ## Changelogs
+
+## 1.3
+
+- Added `:MOOD:` property to express reactions to posts.
+- Added `:GROUP:` property to subscribe to groups and publish posts in groups.
 
 ### 1.2
 
