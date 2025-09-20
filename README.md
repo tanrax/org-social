@@ -356,9 +356,15 @@ I want to share [[https://www.gnu.org/software/emacs/manual/pdf/emacs.pdf][Emacs
 
 Because of the decentralised nature it is very difficult to discover new users. You have to think of it as a technology similar to email or RSS feeds. The natural flow to find new addresses, URLs, or nodes, is because you have been given the address or because you have seen a link on a website. Org Social is the same. You have to share your address with your friends or on social media. The more you interact with the community, the more Org social files you can discover.
 
-If you want the community to discover you quickly, make a Pull Request by adding your URL to `registers.txt` in this repository.
+However, you have an alternative solution. You can register your feed in a public [Org Social Relay](https://github.com/tanrax/org-social?tab=readme-ov-file#org-social-relay) Node.
 
-Check [Org Social Relay](https://github.com/tanrax/org-social?tab=readme-ov-file#org-social-relay) for a more advanced way to be discovered.
+For example:
+
+```sh
+curl -X POST https://org-social-relay.andros.dev/feeds/ -d '{"feed": "https://example.com/social.org"}' -H "Content-Type: application/json"
+```
+
+This will share your feed with other public nodes and make it easier for others to discover you.
 
 ## FAQ
 
@@ -409,10 +415,6 @@ Yes, you can modify or delete a post after you publish it. Just edit the file an
 ### Is there a official client?
 
 Yes, [org-social.el](https://github.com/tanrax/org-social.el). Check [Awesome Org Social](https://github.com/tanrax/awesome-org-social/) for more clients and libraries.
-
-### Can I share or promote my social.org?
-
-Make a Pull Request by adding your URL to `registers.txt`.
 
 ## Use cases
 
