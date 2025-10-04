@@ -25,6 +25,10 @@ Explore the syntax and join the community!
 	- [Make a poll](#make-a-poll)
 	- [Vote on a poll](#vote-on-a-poll)
 	- [Mention a user](#mention-a-user)
+	- [Follow a user](#follow-a-user)
+	- [Subscribe to a group](#subscribe-to-a-group)
+	- [React to a post with emoji](#react-to-a-post-with-emoji)
+	- [Create a multiline post with rich formatting](#create-a-multiline-post-with-rich-formatting)
 - [Org Social Relay](#org-social-relay)
 - [Community](#community)
 - [Changelogs](#changelogs)
@@ -543,6 +547,79 @@ The format is `[[org-social:URL of the user's social.org][nickname]]`
 :END:
 
 Hello [[org-social:http://example-user.com/social.org][Alice]], how are you?
+```
+
+### Follow a user
+
+To follow a user, add the `#+FOLLOW:` keyword at the top of your file with the URL of their `social.org` file. You can optionally include a nickname to remember them by.
+
+```org
+#+TITLE: Bob's journal
+#+NICK: Bob
+#+FOLLOW: https://alice.com/social.org
+#+FOLLOW: myBestFriend https://jane.com/social.org
+```
+
+### Subscribe to a group
+
+To subscribe to a group, add the `#+GROUP:` keyword at the top of your file with the group name and relay URL. This allows you to see posts from that group.
+
+**Note:** You will need a [Relay-compatible client](https://github.com/tanrax/awesome-org-social/) and access to an [Org Social Relay](#org-social-relay) to use this feature.
+
+```org
+#+TITLE: Bob's journal
+#+NICK: Bob
+#+GROUP: emacs https://example-relay.com
+#+GROUP: org-mode https://example-relay.com
+```
+
+### React to a post with emoji
+
+To react to a post with an emoji (❤, ⭐, 🚀, 👍, etc.), create a reply with the `:MOOD:` property and leave the body blank.
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:30:00+0100
+:REPLY_TO: http://example-receiver.com/social.org#2025-05-01T12:00:00+0100
+:MOOD: ❤
+:END:
+
+```
+
+### Create a multiline post with rich formatting
+
+Org Mode supports rich content including multiple paragraphs, lists, bold/italic text, code blocks, tables with calculations, and links.
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:00:00+0100
+:END:
+
+This is a multiline post with rich content.
+
+I can include:
+- Lists with multiple items
+- *Bold text* and /italic text/
+- Code snippets: ~print("hello")~
+- Links: [[https://example.com][Example website]]
+
+#+BEGIN_SRC python
+def hello_world():
+    print("Hello from Org Social!")
+#+END_SRC
+
+| Item    | Price | Quantity | Total |
+|---------+-------+----------+-------|
+| Coffee  |  2.50 |        3 |  7.50 |
+| Tea     |  1.80 |        2 |  3.60 |
+| Cookies |  3.00 |        1 |  3.00 |
+|---------+-------+----------+-------|
+| Total   |       |          | 14.10 |
+#+TBLFM: @2$4=$2*$3::@3$4=$2*$3::@4$4=$2*$3::@5$4=vsum(@2..@4)
+
+And much more!
 ```
 
 ## Org Social Relay
