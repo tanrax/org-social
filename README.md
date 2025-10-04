@@ -679,6 +679,10 @@ And much more!
 
 ## Org Social Relay
 
+Due to the decentralised nature of Org Social, it is not possible to receive mentions, replies or read threads from users you do not follow. Unless you use *Org Social Relay*.
+
+*Org Social Relay* is a P2P system that acts as an intermediary between all Org Social files. It scans the network, creating an index of users, mentions, replies, groups and threads.
+
 ```mermaid
 flowchart TB
     A["Web Server<br>alice.com/social.org"] -- Fetch --> n2["Relay Node<br>moo-org-social-relay.com"]
@@ -699,9 +703,7 @@ flowchart TB
     style E fill:#733c9f,color:white
 ```
 
-Due to the decentralised nature of Org Social, it is not possible to receive mentions, replies or read threads from users you do not follow. Unless you use *Org Social Relay*.
-
-*Org Social Relay* is a P2P system that acts as an intermediary between all Org Social files. It scans the network, creating an index of users, mentions, replies, groups and threads. This allows you to:
+This allows you to:
 
 - Receive mentions and replies.
 - Have a more comprehensive notification system.
