@@ -251,7 +251,7 @@ This is the content of my post with some metadata.
 Available properties:
 
 | Property | Description | Example | Required |
-|----------|-------------|----------|
+|----------|-------------|----------| ---------|
 | `ID` | Unique timestamp identifier (RFC 3339 format) | `2025-05-01T12:00:00+0100` | ✅ |
 | `LANG` | Language code of the post | `en`, `es`, `fr` | ❌ |
 | `TAGS` | Space-separated tags | `emacs org-social` | ❌ |
