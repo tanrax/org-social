@@ -4,6 +4,20 @@
 
 Org Social is a **decentralized social network** that runs on an **Org Mode** file over HTTP.
 
+```mmid
+flowchart LR
+    A["Your social.org file"] -- uploaded to --> B["Web Server"]
+    B -- HTTP GET --> C["Emacs follower"] & D["Emacs follower"] & E["Emacs follower"]
+
+    style A fill:#77aa99,color:black
+    style B fill:#fff4e1,color:black
+    style C fill:#733c9f ,color:white
+    style D fill:#733c9f,color:white
+    style E fill:#733c9f,color:white
+```
+
+
+
 You can create posts, interact with groups, make replies, mention other users, create polls, or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
 
 - [Official client](https://github.com/tanrax/org-social.el)
