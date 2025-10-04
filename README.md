@@ -439,6 +439,24 @@ Yes, you can modify or delete a post after you publish it. Just edit the file an
 
 Yes, [org-social.el](https://github.com/tanrax/org-social.el). Check [Awesome Org Social](https://github.com/tanrax/awesome-org-social/) for more clients and libraries.
 
+### Can I make private posts or restrict who sees my content?
+
+No. Org Social files are public by design. Anyone with the URL can read your feed. If you need privacy:
+
+- Use a private server with authentication (HTTP Basic Auth, IP whitelist, etc.)
+- Share your feed URL only with trusted people
+- Don't publish sensitive information
+
+### Is there a size limit for the social.org file?
+
+No, none. Write whatever you need.
+
+### Can I change my feed URL after publishing it?
+
+The best strategy is to set up a permanent redirect (301) from the old URL to the new one.
+
+The other option is to notify each of your followers and add your new URL to a public Relay (it will automatically notify the rest, and your old URL will eventually be deleted when it receives a 404 error).
+
 ## Use cases
 
 ### Make a new post
