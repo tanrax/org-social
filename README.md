@@ -4,7 +4,7 @@
 
 Org Social is a **decentralized social network** that runs on an **Org Mode** file over HTTP.
 
-```mmid
+```mermaid
 flowchart LR
     A["Your social.org file"] -- uploaded to --> B["Web Server"]
     B -- HTTP GET --> C["Emacs follower"] & D["Emacs follower"] & E["Emacs follower"]
