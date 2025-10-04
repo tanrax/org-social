@@ -61,7 +61,7 @@ You will find a list of active feeds. Add the ones you want to follow with the `
 #+FOLLOW: https://jane.com/social.org
 ```
 
-Now you can read your friends' posts using your favorite Org Social client.
+Now you can read your friends' posts using your favorite [Org Social client](https://github.com/tanrax/awesome-org-social/).
 
 ### ✍️ You write, reply and read
 
@@ -87,9 +87,9 @@ Hello Org Social!
 
 Upload the file to a web server and share the URL with your friends (`https://my-awesome-website.com/social.org`). Don't have your own hosting? [Check this section](#where-can-i-host-my-socialorg-file).
 
-Simple.
+Simple. Now you can share your URL with your friends so they can follow you.
 
-Now you can share your URL with your friends so they can follow you. Do you want strangers to discover you? You can register your URL on a Relay.
+Optional: Do you want strangers to discover you? You can register your URL on a Relay.
 
 Run this command:
 
@@ -218,16 +218,16 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 #+CONTACT: https://mastodon.social/@my-account
 ```
 
-| Field | Description | Multiple |
-|-------|-------------|----------|
-| `TITLE` | The title of your social feed | No |
-| `NICK` | Your nickname. This is the name that will be displayed in posts. You cannot use spaces. | No |
-| `DESCRIPTION` | A short description about yourself | No |
-| `AVATAR` | The URL of your avatar image. Square image with at least 128x128 pixels in JPG or PNG format. | No |
-| `LINK` | Links to your personal website or profile | Yes |
-| `FOLLOW` | Users you follow. Format: <nickname to remember (Optional)> <feed url> `https://example.com/social.org` or `myBestFriend https://example.com/social.org`. Not to be confused with the user-defined nickname. | Yes |
-| `GROUP` | Group you wish to subscribe to. Format: <group name> <relay url> `emacs https://example-relay.com` | Yes |
-| `CONTACT` | Contact information: Email, XMPP, Matrix, ActivityPub, etc. | Yes |
+| Field | Description | Multiple | Required |
+|-------|-------------|----------|----------|
+| `TITLE` | The title of your social feed | ❌ | ✅ |
+| `NICK` | Your nickname. This is the name that will be displayed in posts. You cannot use spaces. | ❌ | ✅ |
+| `DESCRIPTION` | A short description about yourself | ❌ | ❌ |
+| `AVATAR` | The URL of your avatar image. Square image with at least 128x128 pixels in JPG or PNG format. | ❌ | ❌ |
+| `LINK` | Links to your personal website or profile | ✅ | ❌ |
+| `FOLLOW` | Users you follow. Format: <nickname to remember (Optional)> <feed url> `https://example.com/social.org` or `myBestFriend https://example.com/social.org`. Not to be confused with the user-defined nickname. | ✅ | ❌ |
+| `GROUP` | Group you wish to subscribe to. Format: <group name> <relay url> `emacs https://example-relay.com` | ✅ | ❌ |
+| `CONTACT` | Contact information: Email, XMPP, Matrix, ActivityPub, etc. | ✅ | ❌ |
 
 ### Post Metadata
 
@@ -238,7 +238,7 @@ Each post uses Org Mode's properties drawer for metadata:
 :PROPERTIES:
 :ID: 2025-05-01T12:00:00+0100
 :LANG: en
-:TAGS: programming social
+:TAGS: emacs org-social
 :CLIENT: org-social.el
 :REPLY_TO: http://foo.org/social.org#2025-02-03T23:05:00+0100
 :GROUP: emacs https://example-relay.com
@@ -250,17 +250,17 @@ This is the content of my post with some metadata.
 
 Available properties:
 
-| Property | Description |
-|----------|-------------|
-| `ID` | Unique timestamp identifier (required) |
-| `LANG` | Language code of the post |
-| `TAGS` | Space-separated tags |
-| `CLIENT` | Client application used |
-| `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` e.g. `http://foo.org/social.org#2025-02-03T23:05:00+0100` |
-| `POLL_END` | End time for polls (RFC 3339 format) |
-| `POLL_OPTION` | Selected option in a poll vote |
-| `GROUP` | Group the post belongs to. Format: <group name> <relay url> `emacs https://example-relay.com` |
-| `MOOD` | Mood indicator |
+| Property | Description | Example | Required |
+|----------|-------------|----------|
+| `ID` | Unique timestamp identifier (RFC 3339 format) | `2025-05-01T12:00:00+0100` | ✅ |
+| `LANG` | Language code of the post | `en`, `es`, `fr` | ❌ |
+| `TAGS` | Space-separated tags | `emacs org-social` | ❌ |
+| `CLIENT` | Client application used | | `org-social.el` | ❌ |
+| `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` | `http://foo.org/social.org#2025-02-03T23:05:00+0100` | ❌ |
+| `POLL_END` | End time for polls (RFC 3339 format) | `2025-05-01T13:00:00+0100` | ❌ |
+| `POLL_OPTION` | Selected option in a poll vote | `Emacs Lisp` | ❌ |
+| `GROUP` | Group the post belongs to. Format: <group name> <relay url> | `emacs https://example-relay.com` | ❌ |
+| `MOOD` | Mood indicator | `😊`, `❤`, `🚀` | ❌ |
 
 ### Mentions
 
