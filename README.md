@@ -679,6 +679,26 @@ And much more!
 
 ## Org Social Relay
 
+```mermaid
+flowchart TB
+    A["Web Server<br>alice.com/social.org"] -- Fetch --> n2["Relay Node<br>moo-org-social-relay.com"]
+    B["Web Server<br>bob.org/social.org"] -- Fetch --> n1["Relay Node<br>boo-org-social-relay.com"]
+    C["Web Server<br>carol.net/social.org"] -- Fetch --> D["Relay Node<br>foo-org-social-relay.com"]
+    n1 <-- Sync --> D & n2
+    n2 <-- Sync --> D
+    D -- Mentions/Replies/Groups --> E["Your Emacs"]
+
+    n2@{ shape: rect}
+    n1@{ shape: rect}
+    style A fill:#fff4e1,color:black
+    style n2 fill:#ffe1e1,color:black
+    style B fill:#fff4e1,color:black
+    style n1 fill:#ffe1e1,color:black
+    style C fill:#fff4e1,color:black
+    style D fill:#ffe1e1,color:black
+    style E fill:#733c9f,color:white
+```
+
 Due to the decentralised nature of Org Social, it is not possible to receive mentions, replies or read threads from users you do not follow. Unless you use *Org Social Relay*.
 
 *Org Social Relay* is a P2P system that acts as an intermediary between all Org Social files. It scans the network, creating an index of users, mentions, replies, groups and threads. This allows you to:
@@ -697,7 +717,8 @@ Otherwise, you can use a [public Relay node](/org-social-relay-list.txt).
 
 ## Community
 
-IRC channel: `#org-social` on Libera.Chat
+- Org Social Group: `Org Social` on `https://org-social-relay.andros.dev`.
+- IRC channel: `#org-social` on Libera.Chat
 
 ## Changelogs
 
