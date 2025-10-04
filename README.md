@@ -6,8 +6,8 @@ Org Social is a **decentralized social network** that runs on an **Org Mode** fi
 
 ```mermaid
 flowchart LR
-    A["Your social.org file"] -- uploaded to --> B["Web Server"]
-    B -- HTTP GET --> C["Emacs follower"] & D["Emacs follower"] & E["Emacs follower"]
+    A["Your social.org file"] -- uploaded to --> B["Web Server<br/>example.com/social.org"]
+    B -- Fetch --> C["Emacs follower"] & D["Emacs follower"] & E["Emacs follower"]
 
     style A fill:#77aa99,color:black
     style B fill:#fff4e1,color:black
@@ -51,6 +51,16 @@ You decide how much you want to interact with the community:
 
 ### 👀 Basic: read-only
 
+```mermaid
+flowchart LR
+    A["Web Server<br/>foo.org/social.org"] & B["Web Server<br/>jane.com/social.org"] & C["Web Server<br/>bob.net/social.org"] -- Fetch --> D["Your Emacs"]
+
+    style A fill:#fff4e1,color:black
+    style B fill:#fff4e1,color:black
+    style C fill:#fff4e1,color:black
+    style D fill:#733c9f,color:white
+```
+
 Create a file called `social.org` and add the followers you want to read to your list.
 
 ```sh
@@ -80,6 +90,21 @@ You will find a list of active feeds. Add the ones you want to follow with the `
 Now you can read your friends' posts using your favorite [Org Social client](https://github.com/tanrax/awesome-org-social/).
 
 ### ✍️ You write, reply and read
+
+```mermaid
+flowchart TB
+    A["Your social.org file"] -- uploaded to --> B["Your Web Server<br/>my-awesome-website.com/social.org"]
+    B -- Fetch --> C["Emacs follower"] & D["Emacs follower"]
+    E["Web Server<br/>foo.org/social.org"] & F["Web Server<br/>jane.com/social.org"] -- Fetch --> G["Your Emacs"]
+
+    style A fill:#77aa99,color:black
+    style B fill:#fff4e1,color:black
+    style C fill:#733c9f,color:white
+    style D fill:#733c9f,color:white
+    style E fill:#fff4e1,color:black
+    style F fill:#fff4e1,color:black
+    style G fill:#733c9f,color:white
+```
 
 Create a file called `social.org` and add your basic information and your first post.
 
