@@ -255,12 +255,14 @@ Available properties:
 | `ID` | Unique timestamp identifier (RFC 3339 format) | `2025-05-01T12:00:00+0100` | ✅ |
 | `LANG` | Language code of the post | `en`, `es`, `fr` | ❌ |
 | `TAGS` | Space-separated tags | `emacs org-social` | ❌ |
-| `CLIENT` | Client application used | | `org-social.el` | ❌ |
+| `CLIENT` | Client application used | `org-social.el` | ❌ |
 | `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` | `http://foo.org/social.org#2025-02-03T23:05:00+0100` | ❌ |
 | `POLL_END` | End time for polls (RFC 3339 format) | `2025-05-01T13:00:00+0100` | ❌ |
 | `POLL_OPTION` | Selected option in a poll vote | `Emacs Lisp` | ❌ |
 | `GROUP` | Group the post belongs to. Format: <group name> <relay url> | `emacs https://example-relay.com` | ❌ |
 | `MOOD` | Mood indicator | `😊`, `❤`, `🚀` | ❌ |
+
+**No property is multiple**.
 
 ### Mentions
 
