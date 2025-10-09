@@ -16,7 +16,7 @@ flowchart LR
     style E fill:#733c9f,color:white
 ```
 
-You can create posts, interact with groups, make replies, mention other users, create polls, or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
+On "Orgverse", you can create posts, interact with groups, make replies, mention other users, create polls, or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
 
 - [Official client](https://github.com/tanrax/org-social.el)
 - [Other clients and libraries](https://github.com/tanrax/awesome-org-social/)
