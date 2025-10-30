@@ -41,6 +41,7 @@ Explore the syntax and join the community!
 	- [Subscribe to a group](#subscribe-to-a-group)
 	- [React to a post with emoji](#react-to-a-post-with-emoji)
 	- [Create a multiline post with rich formatting](#create-a-multiline-post-with-rich-formatting)
+	- [Schedule a post](#schedule-a-post)
 - [Org Social Relay](#org-social-relay)
 - [Community](#community)
 - [Changelogs](#changelogs)
@@ -295,7 +296,7 @@ Available properties:
 
 | Property | Description | Example | Required |
 |----------|-------------|----------| ---------|
-| `ID` | Unique timestamp identifier (RFC 3339 format) | `2025-05-01T12:00:00+0100` | ✅ |
+| `ID` | Unique timestamp identifier (RFC 3339 format). Posts with future dates are considered scheduled posts and should not be displayed by clients until the scheduled time. | `2025-05-01T12:00:00+0100` | ✅ |
 | `LANG` | Language code of the post | `en`, `es`, `fr` | ❌ |
 | `TAGS` | Space-separated tags | `emacs org-social` | ❌ |
 | `CLIENT` | Client application used | `org-social.el` | ❌ |
@@ -678,6 +679,21 @@ def hello_world():
 
 And much more!
 ```
+
+### Schedule a post
+
+Posts with a future date in their `ID` property are considered scheduled posts. These posts will not be displayed by clients until their scheduled time arrives.
+
+```org
+**
+:PROPERTIES:
+:ID: 40000-01-01T00:00:00+0100
+:END:
+
+In the grim darkness of the far future, there is only war.
+```
+
+Clients should filter out posts where the `ID` timestamp is in the future. Once the scheduled time passes, the post will automatically become visible when clients fetch the feed.
 
 ## Org Social Relay
 
