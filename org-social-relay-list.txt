@@ -1,1 +1,2 @@
 https://org-social-relay.andros.dev
+https://orgs-relay.adsan.dev
