@@ -77,7 +77,7 @@ Edit the file and add your basic information:
 Who to follow? You can start with:
 
 ```sh
-curl https://org-social-relay.andros.dev/feeds/
+curl https://relay.org-social.org/feeds/
 ```
 
 You will find a list of active feeds. Add the ones you want to follow with the `#+FOLLOW:` keyword.
@@ -136,7 +136,7 @@ Optional: Do you want strangers to discover you? You can register your URL on a 
 Run this command:
 
 ```sh
-curl -X POST https://org-social-relay.andros.dev/feeds/ -d '{"feed": "https://my-awesome-website.com/social.org"}' -H "Content-Type: application/json"
+curl -X POST https://relay.org-social.org/feeds/ -d '{"feed": "https://my-awesome-website.com/social.org"}' -H "Content-Type: application/json"
 ```
 
 (Replace `https://my-awesome-website.com/social.org` with your actual URL.) You needs to do it only once.
@@ -424,7 +424,7 @@ However, you have an alternative solution. You can register your feed in a publi
 For example:
 
 ```sh
-curl -X POST https://org-social-relay.andros.dev/feeds/ -d '{"feed": "https://example.com/social.org"}' -H "Content-Type: application/json"
+curl -X POST https://relay.org-social.org/feeds/ -d '{"feed": "https://example.com/social.org"}' -H "Content-Type: application/json"
 ```
 
 This will share your feed with other public nodes and make it easier for others to discover you.
@@ -737,7 +737,7 @@ Otherwise, you can use a [public Relay node](/org-social-relay-list.txt).
 
 ## Community
 
-- Org Social Group: `Org Social` on `https://org-social-relay.andros.dev`.
+- Org Social Group: `Org Social` on `https://relay.org-social.org`.
 - IRC channel: `#org-social` on Libera.Chat
 
 ## Changelogs
