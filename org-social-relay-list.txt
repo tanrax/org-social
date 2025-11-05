@@ -1,1 +1,2 @@
 https://relay.org-social.org
+https://orgs-relay.adsan.dev
