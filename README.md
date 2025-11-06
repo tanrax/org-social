@@ -4,6 +4,14 @@
 
 Org Social is a **decentralized social network** that runs on an **Org Mode** file over HTTP.
 
+The values are:
+
+1. **Simplicity**: Org Social is a simple text file that you can edit with any Emacs or text editor.
+2. **Accessibility**: The feed can be read by humans and machines.
+3. **Decentralization**: You are a node in the network. The feed is hosted on a web server and can be accessed by anyone.
+4. **Org Philosophy**: Native Org Mode features are used to enhance the social experience, such as tables, code blocks, and links.
+5. **Your information belongs to you**: Your posts and interactions with the community are recorded in your Org file.
+
 ```mermaid
 flowchart LR
     A["Your social.org file"] -- uploaded to --> B["Web Server<br/>example.com/social.org"]
@@ -160,13 +168,6 @@ Org Social is a decentralized social network that leverages the simplicity and p
 It allows users to create, share, and interact with posts in a human-readable format while maintaining compatibility with various text editors and tools. You can publish posts, interact with groups, make replies, mention other users, create polls or personalize your profile.
 
 It is heavily inspired by [twtxt](https://twtxt.readthedocs.io/en/stable/), [Texudus](https://texudus.com), and the extensions developed by the [Yarn community](https://twtxt.dev/). It takes the best of these specifications, eliminates complex parts, leverages Org Mode's native features, and keeps the premise that social networking should be simple, accessible to both humans and machines, and manageable with standard text editing tools.
-
-The values are:
-
-1. **Simplicity**: Org Social is a simple text file that you can edit with any Emacs or text editor.
-2. **Accessibility**: The feed can be read by humans and machines.
-3. **Decentralization**: You are a node in the network. The feed is hosted on a web server and can be accessed by anyone.
-4. **Org Philosophy**: Native Org Mode features are used to enhance the social experience, such as timestamps, properties, and links.
 
 ## Tutorial
 
