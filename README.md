@@ -16,12 +16,21 @@ flowchart LR
     style E fill:#733c9f,color:white
 ```
 
-You can create posts, interact with groups, make replies, mention other users, create polls, or personalize your profile. All this without registration, without databases... Just you and your Org Mode file.
+You can create **posts**, interact with **groups**, make **replies**, mention other users, create **polls**, or personalize your **profile**. All this **without registration**, without databases... Just you and **your Org Mode file**.
+
+You can use it as:
+
+- **Microblogging**: publish short messages and interact with the community through replies or reactions.
+- **Blog system**: Share all your articles using Org Mode syntax with no limits on length or quantity. In addition, each reply will be a comment. And if you want, you can generate an HTML version using org-mode exporters or static site generators.
+- **Forum**: Create or participate in groups and discuss topics with other users.
+- **RSS/Atom alternative**: Share your articles in a simple and decentralized way.
+
+Review current clients:
 
 - [Official client](https://github.com/tanrax/org-social.el)
 - [Other clients and libraries](https://github.com/tanrax/awesome-org-social/)
 
-Explore the syntax and join the community!
+And explore the syntax and join the community!
 
 - [Quickstart](#quickstart)
     - [Basic: read-only](#-basic-read-only)
