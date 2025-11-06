@@ -6,11 +6,13 @@ Org Social is a **decentralized social network** that runs on an **Org Mode** fi
 
 The values are:
 
-1. **Simplicity**: Org Social is a simple text file that you can edit with any Emacs or text editor.
-2. **Accessibility**: The feed can be read by humans and machines.
-3. **Decentralization**: You are a node in the network. The feed is hosted on a web server and can be accessed by anyone.
-4. **Org Philosophy**: Native Org Mode features are used to enhance the social experience, such as tables, code blocks, and links.
-5. **Your information belongs to you**: Your posts and interactions with the community are recorded in your Org file.
+1. **✏️ Simplicity**: Org Social is a simple text file that you can edit with any Emacs or text editor.
+2. **🌐 Accessibility**: The feed can be read by humans and machines.
+3. **🕸️ Decentralization**: You are a node in the network. The feed is hosted on a web server and can be accessed by anyone.
+4. **🦄 Org Philosophy**: Native Org Mode features are used to enhance the social experience, such as tables, code blocks, and links.
+5. **🔐 Your information belongs to you**: Your posts and interactions with the community are recorded in your Org file.
+
+Upload your file and let the community read it or interact with you.
 
 ```mermaid
 flowchart LR
