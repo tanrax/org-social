@@ -51,6 +51,7 @@ And explore the syntax and join the community!
 	- [React to a post with emoji](#react-to-a-post-with-emoji)
 	- [Create a multiline post with rich formatting](#create-a-multiline-post-with-rich-formatting)
 	- [Schedule a post](#schedule-a-post)
+	- [Add a title to a post](#add-a-title-to-a-post)
 - [Org Social Relay](#org-social-relay)
 - [Community](#community)
 - [Changelogs](#changelogs)
@@ -703,6 +704,25 @@ In the grim darkness of the far future, there is only war.
 ```
 
 Clients should filter out posts where the `ID` timestamp is in the future. Once the scheduled time passes, the post will automatically become visible when clients fetch the feed.
+
+### Add a title to a post
+
+You don't need a special property to add a title to your post. Simply use Org Mode's native heading syntax with `***`:
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:00:00+0100
+:END:
+
+*** My First Blog Post
+
+Today I want to share my thoughts about Org Mode and why it's such a powerful tool for organizing information.
+
+I've been using it for years and it has completely changed how I work with text files.
+```
+
+The `***` creates a third-level heading that acts as your post title, while the content below is the body of your post. This keeps everything simple and follows Org Mode conventions.
 
 ## Org Social Relay
 
