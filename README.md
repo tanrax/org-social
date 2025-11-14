@@ -769,8 +769,19 @@ Otherwise, you can use a [public Relay node](/org-social-relay-list.txt).
 
 ## Community
 
-- Org Social Group: `Org Social` on `https://relay.org-social.org`.
-- IRC channel: `#org-social` on Libera.Chat
+We have official accounts that you can follow right from the start:
+
+- [Org Social official account](https://org-social.org/social.org)
+- [Aggregates blogs about Emacs](https://planet-emacs.org-social.org/)
+- [Aggregates blogs about Org Mode](https://org-mode.org-social.org/)
+
+Or join the group:
+
+- `Org Social` on `https://relay.org-social.org`.
+
+Or IRC channel:
+
+- `#org-social` on Libera.Chat
 
 ## Changelogs
 
