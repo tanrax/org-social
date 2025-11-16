@@ -63,8 +63,9 @@ And explore the syntax and join the community!
 	- [Schedule a post](#schedule-a-post)
 	- [Add a title to a post](#add-a-title-to-a-post)
 - [Org Social Relay](#org-social-relay)
+- [Other Cool Things You Can Do](#other-cool-things-you-can-do)
 - [Community](#community)
-- [Changelogs](#changelogs)
+- [CHANGELOG.md](CHANGELOG.md)
 
 ## Quickstart
 
@@ -108,7 +109,7 @@ You will find a list of active feeds. Add the ones you want to follow with the `
 #+FOLLOW: https://jane.com/social.org
 ```
 
-Now you can read your friends' posts using your favorite [Org Social client](https://github.com/tanrax/awesome-org-social/).
+Now you can read your friends' posts. We recommend the [official client](https://github.com/tanrax/org-social.el) for Emacs users, or check [other clients](https://github.com/tanrax/awesome-org-social/).
 
 ### ✍️ You write, reply and read
 
@@ -161,7 +162,7 @@ curl -X POST https://relay.org-social.org/feeds/ -d '{"feed": "https://my-awesom
 
 (Replace `https://my-awesome-website.com/social.org` with your actual URL.) You needs to do it only once.
 
-Now it's your turn to learn how to interact with Org Social's syntax and the community. Check the [Use cases](#use-cases) section or use a Org Social client.
+Now it's your turn to learn how to interact with Org Social's syntax and the community. Check the [Use cases](#use-cases) section or install the [official client](https://github.com/tanrax/org-social.el).
 
 ## Introduction
 
@@ -237,7 +238,9 @@ The file must be encoded with UTF-8 and should use LF (`\n`) as line separators.
 
 You can use any web server, but make sure it supports plain text files. You can use GitHub Pages, Gitea, or any other service that allows you to host plain text files.
 
-To consume and read other users' feeds, you can read them manually, use a script, or a client.
+### 5. Install a client to read and interact
+
+To consume and read other users' feeds, install the [official client](https://github.com/tanrax/org-social.el) for Emacs, or check [other available clients](https://github.com/tanrax/awesome-org-social/).
 
 ## Syntax
 
@@ -767,6 +770,15 @@ Then you can set up your own instance of [Social Org Relay](https://github.com/t
 
 Otherwise, you can use a [public Relay node](/org-social-relay-list.txt).
 
+## Other Cool Things You Can Do
+
+Beyond the standard social networking use cases, Org Social's simplicity and flexibility open up some creative possibilities:
+
+- **Personal Blog System with RSS Feed**: Since the Relay generates **individual RSS feeds for each feed**, you can use Org Social as a lightweight blogging platform.
+- **Private Forums and Discussion Spaces**: You can use Org Social to create **private forums** where everyone writes in Org Mode.
+- **Decentralized Event Planning**: Use Org Social to organize events, share details, and manage RSVPs in a decentralized manner.
+- **Public bookmark manager**: Use your `social.org` file to save and categorize bookmarks using Org Mode's native link and tagging features.
+
 ## Community
 
 We have official accounts that you can follow right from the start:
@@ -782,44 +794,6 @@ Or join the group:
 Or IRC channel:
 
 - `#org-social` on Libera.Chat
-
-## Changelogs
-
-## 1.3
-
-- Added `:MOOD:` property to express reactions to posts.
-- Added `:GROUP:` property to subscribe to groups and publish posts in groups.
-
-### 1.2
-
-- Avatar image must be at least 128x128 pixels in JPG or PNG format.
-
-## 1.1
-
-- Removed the separation between `* Posts` and the first header 2 `**`.
-
-Before
-
-```org
-* Posts
-
-**
-```
-
-After
-
-```org
-* Posts
-**
-```
-
-- Removed `:REPLY_URL:` property.
-
-Thanks [@confusedalex](https://github.com/confusedalex).
-
-## 1.0
-
-First draft
 
 ## Thanks
 
