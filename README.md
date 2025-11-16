@@ -62,6 +62,8 @@ And explore the syntax and join the community!
 	- [Create a multiline post with rich formatting](#create-a-multiline-post-with-rich-formatting)
 	- [Schedule a post](#schedule-a-post)
 	- [Add a title to a post](#add-a-title-to-a-post)
+	- [Share your RSS feed](#share-your-rss-feed)
+	- [Share an HTML preview of a post](#share-an-html-preview-of-a-post)
 - [Org Social Relay](#org-social-relay)
 - [Other Cool Things You Can Do](#other-cool-things-you-can-do)
 - [Community](#community)
@@ -729,6 +731,58 @@ I've been using it for years and it has completely changed how I work with text 
 ```
 
 The `***` creates a third-level heading that acts as your post title, while the content below is the body of your post. This keeps everything simple and follows Org Mode conventions.
+
+### Share your RSS feed
+
+First, register your feed on a Relay:
+
+```bash
+# Your social.org URL: https://my-awesome-website.com/social.org
+
+curl -X POST https://relay.org-social.org/feeds/ -d '{"feed": "https://my-awesome-website.com/social.org"}' -H "Content-Type: application/json"
+```
+
+**Note:** If you use the [official client](https://github.com/tanrax/org-social.el), registration happens automatically—no manual step needed.
+
+After registration, wait at least **1 minute** for your feed to be indexed. The Relay scans all registered feeds every minute.
+
+Once indexed, your feed is automatically available as RSS. Anyone can subscribe using standard RSS readers.
+
+The RSS URL format is:
+
+```
+https://relay.org-social.org/rss.xml?feed=<your-url-encoded-social.org-url>
+```
+
+Example:
+
+```bash
+# Your social.org URL: https://my-awesome-website.com/social.org
+
+# Your RSS feed URL (URL-encoded)
+https://relay.org-social.org/rss.xml?feed=https%3A%2F%2Fmy-awesome-website.com%2Fsocial.org
+```
+
+Share this RSS URL so others can follow you with their favorite RSS reader.
+
+### Share an HTML preview of a post
+
+Share individual posts on social media with rich previews using the public preview service:
+
+```
+https://preview.org-social.org/?post=<your-url-encoded-post-url>
+```
+
+Example:
+
+```bash
+# Your post URL (feed URL + # + post ID): https://my-awesome-website.com/social.org#2025-05-01T12:00:00+0100
+
+# Preview URL (URL-encoded)
+https://preview.org-social.org/?post=https%3A%2F%2Fmy-awesome-website.com%2Fsocial.org%232025-05-01T12%3A00%3A00%2B0100
+```
+
+The preview includes Open Graph metadata for rich social media sharing.
 
 ## Org Social Relay
 
