@@ -578,11 +578,11 @@ If you just want to leave a reaction on a post: ❤, ⭐, 🚀, 👍... You can 
 
 ### Boost a post
 
-To share someone else's post on your timeline (boost/retweet), use the `:INCLUDE:` property.
+To share someone else's post on your timeline (boost/retweet), use the `:INCLUDE:` property. Perfect for sharing another user's content with your followers and helping to spread the word about accounts.
 
 The format is: `feed URL` + `#` + `ID of the post being boosted`.
 
-**Simple boost (no comment):** It appears on your timeline. Perfect for sharing another user's content with your followers and helping to spread the word about accounts.
+**Simple boost (no comment)**
 
 ```org
 **
@@ -593,7 +593,7 @@ The format is: `feed URL` + `#` + `ID of the post being boosted`.
 
 ```
 
-**Quote boost (with comment):** Same as above, but also include a comment similar to a quote.
+**Quote boost (with comment)**
 
 ```org
 **
