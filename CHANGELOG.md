@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4
+
+- Added `:INCLUDE:` property to boost/share posts from other users.
+
 ## 1.3
 
 - Added `:MOOD:` property to express reactions to posts.
