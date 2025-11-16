@@ -53,6 +53,7 @@ And explore the syntax and join the community!
 - [Use cases](#use-cases)
 	- [Make a new post](#make-a-new-post)
 	- [Reply to a post](#reply-to-a-post)
+	- [Boost a post](#boost-a-post)
 	- [Make a poll](#make-a-poll)
 	- [Vote on a poll](#vote-on-a-poll)
 	- [Mention a user](#mention-a-user)
@@ -323,6 +324,7 @@ Available properties:
 | `POLL_OPTION` | Selected option in a poll vote | `Emacs Lisp` | ❌ |
 | `GROUP` | Group the post belongs to. Format: <group name> <relay url> | `Emacs https://example-relay.com` | ❌ |
 | `MOOD` | Mood indicator | `😊`, `❤`, `🚀` | ❌ |
+| `INCLUDE` | Post being boosted/shared. Format: `URL` + `#` +`ID` | `http://alice.com/social.org#2025-05-01T10:00:00+0100` | ❌ |
 
 **No property is multiple**.
 
@@ -572,6 +574,35 @@ If you just want to leave a reaction on a post: ❤, ⭐, 🚀, 👍... You can 
 :MOOD: ❤
 :END:
 
+```
+
+### Boost a post
+
+To share someone else's post on your timeline (boost/retweet), use the `:INCLUDE:` property.
+
+The format is: `feed URL` + `#` + `ID of the post being boosted`.
+
+**Simple boost (no comment):** It appears on your timeline. Perfect for sharing another user's content with your followers and helping to spread the word about accounts.
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T14:00:00+0100
+:INCLUDE: https://alice.com/social.org#2025-05-01T10:00:00+0100
+:END:
+
+```
+
+**Quote boost (with comment):** Same as above, but also include a comment similar to a quote.
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T14:00:00+0100
+:INCLUDE: https://alice.com/social.org#2025-05-01T10:00:00+0100
+:END:
+
+Guys, you have to see this!
 ```
 
 ### Make a poll
