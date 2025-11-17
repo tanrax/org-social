@@ -108,7 +108,7 @@ You will find a list of active feeds. Add the ones you want to follow with the `
 
 ```org
 #+TITLE: Bob's journal
-#+FOLLOW: http://foo.org/social.org
+#+FOLLOW: https://foo.org/social.org
 #+FOLLOW: https://jane.com/social.org
 ```
 
@@ -139,7 +139,7 @@ Create a file called `social.org` and add your basic information and your first 
 #+DESCRIPTION: I'm a software developer and I love open source.
 #+AVATAR: https://my-awesome-website.com/avatar.jpg
 #+LINK: https://my-awesome-website.com
-#+FOLLOW: http://foo.org/social.org
+#+FOLLOW: https://foo.org/social.org
 #+FOLLOW: https://jane.com/social.org
 
 * Posts
@@ -303,7 +303,7 @@ Each post uses Org Mode's properties drawer for metadata:
 :LANG: en
 :TAGS: emacs org-social
 :CLIENT: org-social.el
-:REPLY_TO: http://foo.org/social.org#2025-02-03T23:05:00+0100
+:REPLY_TO: https://foo.org/social.org#2025-02-03T23:05:00+0100
 :GROUP: Emacs https://example-relay.com
 :MOOD: 😊
 :END:
@@ -319,12 +319,12 @@ Available properties:
 | `LANG` | Language code of the post | `en`, `es`, `fr` | ❌ |
 | `TAGS` | Space-separated tags | `emacs org-social` | ❌ |
 | `CLIENT` | Client application used | `org-social.el` | ❌ |
-| `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` | `http://foo.org/social.org#2025-02-03T23:05:00+0100` | ❌ |
+| `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` | `https://foo.org/social.org#2025-02-03T23:05:00+0100` | ❌ |
 | `POLL_END` | End time for polls (RFC 3339 format) | `2025-05-01T13:00:00+0100` | ❌ |
 | `POLL_OPTION` | Selected option in a poll vote | `Emacs Lisp` | ❌ |
 | `GROUP` | Group the post belongs to. Format: <group name> <relay url> | `Emacs https://example-relay.com` | ❌ |
 | `MOOD` | Mood indicator | `😊`, `❤`, `🚀` | ❌ |
-| `INCLUDE` | Post being boosted/shared. Format: `URL` + `#` +`ID` | `http://alice.com/social.org#2025-05-01T10:00:00+0100` | ❌ |
+| `INCLUDE` | Post being boosted/shared. Format: `URL` + `#` +`ID` | `https://alice.com/social.org#2025-05-01T10:00:00+0100` | ❌ |
 
 **No property is multiple**.
 
@@ -333,7 +333,7 @@ Available properties:
 Org Social uses Org Mode's link system for mentions. First, you can define a custom link type:
 
 ```org
-[[org-social:http://example.org/social.org][username]]
+[[org-social:https://example.org/social.org][username]]
 ```
 
 Then mention users using this format:
@@ -344,7 +344,7 @@ Then mention users using this format:
 :ID: 2025-05-01T12:00:00+0100
 :END:
 
-Welcome to Org Social [[org-social:http://example.org/social.org][bob]]!
+Welcome to Org Social [[org-social:https://example.org/social.org][bob]]!
 ```
 
 You can mention multiple users in a single post:
@@ -355,7 +355,7 @@ You can mention multiple users in a single post:
 :ID: 2025-05-01T12:00:00+0100
 :END:
 
-Good morning [[org-social:http://example.org/social.org][bob]] and [[org-social:http://alice.com/social.org][alice]]! What are you doing today?
+Good morning [[org-social:https://example.org/social.org][bob]] and [[org-social:https://alice.com/social.org][alice]]! What are you doing today?
 ```
 
 ### Multiline Posts
@@ -415,7 +415,7 @@ To vote on a poll, create a vote post:
 **
 :PROPERTIES:
 :ID: 2025-05-01T13:00:00+0100
-:REPLY_TO: http://example.org/social.org#2025-05-01T12:00:00+0100
+:REPLY_TO: https://example.org/social.org#2025-05-01T12:00:00+0100
 :POLL_OPTION: Emacs Lisp
 :END:
 
@@ -558,7 +558,7 @@ The format is: `receiver URL` + `#` + `ID of the post being replied to`.
 **
 :PROPERTIES:
 :ID: 2025-05-01T12:30:00+0100
-:REPLY_TO: http://example-receiver.com/social.org#2025-05-01T12:00:00+0100
+:REPLY_TO: https://example-receiver.com/social.org#2025-05-01T12:00:00+0100
 :END:
 
 I agree with your point about the new feature. It will be very useful for many users.
@@ -570,7 +570,7 @@ If you just want to leave a reaction on a post: ❤, ⭐, 🚀, 👍... You can 
 **
 :PROPERTIES:
 :ID: 2025-05-01T12:30:00+0100
-:REPLY_TO: http://example-receiver.com/social.org#2025-05-01T12:00:00+0100
+:REPLY_TO: https://example-receiver.com/social.org#2025-05-01T12:00:00+0100
 :MOOD: ❤
 :END:
 
@@ -632,7 +632,7 @@ To vote on a poll, create a new post with the `:REPLY_TO:` property set to the I
 **
 :PROPERTIES:
 :ID: 2025-05-01T12:30:00+0100
-:REPLY_TO: http://example-poll.com/social.org#2025-05-01T12:00:00+0100
+:REPLY_TO: https://example-poll.com/social.org#2025-05-01T12:00:00+0100
 :POLL_OPTION: Cat
 :END:
 
@@ -653,7 +653,7 @@ The format is `[[org-social:URL of the user's social.org][nickname]]`
 :ID: 2025-05-01T12:00:00+0100
 :END:
 
-Hello [[org-social:http://example-user.com/social.org][Alice]], how are you?
+Hello [[org-social:https://example-user.com/social.org][Alice]], how are you?
 ```
 
 ### Follow a user
@@ -688,7 +688,7 @@ To react to a post with an emoji (❤, ⭐, 🚀, 👍, etc.), create a reply wi
 **
 :PROPERTIES:
 :ID: 2025-05-01T12:30:00+0100
-:REPLY_TO: http://example-receiver.com/social.org#2025-05-01T12:00:00+0100
+:REPLY_TO: https://example-receiver.com/social.org#2025-05-01T12:00:00+0100
 :MOOD: ❤
 :END:
 
