@@ -61,6 +61,7 @@ And explore the syntax and join the community!
 	- [Subscribe to a group](#subscribe-to-a-group)
 	- [React to a post with emoji](#react-to-a-post-with-emoji)
 	- [Create a multiline post with rich formatting](#create-a-multiline-post-with-rich-formatting)
+	- [Migrate your account to a new URL](#migrate-your-account-to-a-new-url)
 	- [Schedule a post](#schedule-a-post)
 	- [Add a title to a post](#add-a-title-to-a-post)
 	- [Share your RSS feed](#share-your-rss-feed)
@@ -325,6 +326,7 @@ Available properties:
 | `GROUP` | Group the post belongs to. Format: <group name> <relay url> | `Emacs https://example-relay.com` | ❌ |
 | `MOOD` | Mood indicator | `😊`, `❤`, `🚀` | ❌ |
 | `INCLUDE` | Post being boosted/shared. Format: `URL` + `#` +`ID` | `https://alice.com/social.org#2025-05-01T10:00:00+0100` | ❌ |
+| `MIGRATION` | Indicates account migration from old to new URL. Format: `<old-url> <new-url>` | `https://old-address.com/social.org https://new-address.com/social.org` | ❌ |
 
 **No property is multiple**.
 
@@ -465,7 +467,6 @@ Yes, check this example:
 **
 :PROPERTIES:
 :ID: 2025-05-01T12:00:00+0100
-:TITLE: My awesome title
 :LANG: en
 :CATEGORY: programming
 :URL: https://blog.example.com/my-awesome-article
@@ -814,6 +815,34 @@ https://preview.org-social.org/?post=https%3A%2F%2Fmy-awesome-website.com%2Fsoci
 ```
 
 The preview includes Open Graph metadata for rich social media sharing.
+
+### Migrate your account to a new URL
+
+If you need to move your `social.org` file to a new URL, you can create a migration post to notify your followers and allow clients to automatically update their follow lists.
+
+Create a post with the `:MIGRATION:` property containing both your old and new URLs:
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-15T10:00:00+0100
+:MIGRATION: https://old-address.com/social.org https://new-address.com/social.org
+:END:
+
+```
+
+The post body is typically left empty, as the migration information is in the property. This special post serves two purposes:
+
+1. **Notify your followers**: Informs them that you've moved to a new address
+2. **Enable automatic client updates**: Compatible clients can automatically update their follow lists, replacing your old URL with the new one
+
+After creating the migration post:
+
+1. Upload it to your **old URL** so followers can discover the migration
+2. Set up a permanent redirect (301) from your old URL to the new one
+3. Continue posting from your **new URL**
+
+Clients should detect migration posts and offer to update the followed URL automatically, ensuring your followers don't lose track of you.
 
 ## Org Social Relay
 
