@@ -3,6 +3,8 @@
 ## 1.4
 
 - Added `:INCLUDE:` property to boost/share posts from other users.
+- Added `:MIGRATION:` property to report domain changes.
+
 
 ## 1.3
 
