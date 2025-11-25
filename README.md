@@ -42,7 +42,8 @@ Review current clients:
 
 And explore the syntax and join the community!
 
-- [Quickstart](#quickstart)
+- [Quick and easy start](#quick-and-easy-start)
+- [Quickstart for Nerds](#quickstart-for-nerds)
     - [Basic: read-only](#-basic-read-only)
     - [You write, reply and read](#%EF%B8%8F-you-write-reply-and-read)
 - [Introduction](#introduction)
@@ -71,7 +72,15 @@ And explore the syntax and join the community!
 - [Community](#community)
 - [CHANGELOG.md](CHANGELOG.md)
 
-## Quickstart
+## Quick and easy start
+
+Are you new to Org Social? Follow this quick tutorial to get started without needing to know all the technical details:
+
+[Quick Tutorial to Get Started on Org Social](https://en.andros.dev/blog/ddd78757/quick-tutorial-to-get-started-on-org-social/)
+
+This guide will walk you through the basics in a simple, step-by-step way.
+
+## Quickstart for Nerds
 
 You decide how much you want to interact with the community:
 
