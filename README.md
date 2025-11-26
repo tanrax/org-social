@@ -901,26 +901,17 @@ The Org Social ecosystem consists of several interconnected components that work
 
 ```mermaid
 flowchart TB
-    Client1["org-social.el<br/>(Emacs Client)"] --> Preview["Org Social Live Preview"]
-    Client2["Web Client"] --> Preview
-    Client3["Mobile Client"] --> Preview
-    Client4["CLI Client"] --> Preview
-
-    Client1 --> Relay1["Org Social Relay 1"]
-    Client2 --> Host["Org Social Host"]
-    Client3 --> Host
-    Client4 --> Relay2["Org Social Relay 2"]
+    Client["org-social.el<br/>(Emacs Client)"] --> Preview["Org Social Live Preview"]
+    Client --> Relay1["Org Social Relay 1"]
+    Client --> Host["Org Social Host"]
 
     Host --> Relay1
 
-    Relay1 <--> Relay2
+    Relay1 <--> Relay2["Org Social Relay 2"]
     Relay2 <--> Relay3["Org Social Relay 3"]
     Relay3 <--> Relay1
 
-    style Client1 fill:#733c9f,color:white
-    style Client2 fill:#733c9f,color:white
-    style Client3 fill:#733c9f,color:white
-    style Client4 fill:#733c9f,color:white
+    style Client fill:#733c9f,color:white
     style Preview fill:#e1f5ff,color:black
     style Relay1 fill:#ffe1e1,color:black
     style Relay2 fill:#ffe1e1,color:black
