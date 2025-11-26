@@ -68,6 +68,7 @@ And explore the syntax and join the community!
 	- [Share your RSS feed](#share-your-rss-feed)
 	- [Share an HTML preview of a post](#share-an-html-preview-of-a-post)
 - [Org Social Relay](#org-social-relay)
+- [Architecture](#architecture)
 - [Other Cool Things You Can Do](#other-cool-things-you-can-do)
 - [Community](#community)
 - [CHANGELOG.md](CHANGELOG.md)
@@ -900,28 +901,40 @@ The Org Social ecosystem consists of several interconnected components that work
 
 ```mermaid
 flowchart TB
-    A["org-social.el<br/>(Emacs Client)"] --> B["Org Social Relay"]
-    A --> C["Org Social Live Preview"]
-    A --> D["Org Social Host"]
-    D --> B
+    Client1["org-social.el<br/>(Emacs Client)"] --> Preview["Org Social Live Preview"]
+    Client2["Web Client"] --> Preview
+    Client3["Mobile Client"] --> Preview
+    Client4["CLI Client"] --> Preview
 
-    style A fill:#733c9f,color:white
-    style B fill:#ffe1e1,color:black
-    style C fill:#e1f5ff,color:black
-    style D fill:#fff4e1,color:black
+    Client1 --> Relay1["Org Social Relay 1"]
+    Client2 --> Host["Org Social Host"]
+    Client3 --> Host
+    Client4 --> Relay2["Org Social Relay 2"]
+
+    Host --> Relay1
+
+    Relay1 <--> Relay2
+    Relay2 <--> Relay3["Org Social Relay 3"]
+    Relay3 <--> Relay1
+
+    style Client1 fill:#733c9f,color:white
+    style Client2 fill:#733c9f,color:white
+    style Client3 fill:#733c9f,color:white
+    style Client4 fill:#733c9f,color:white
+    style Preview fill:#e1f5ff,color:black
+    style Relay1 fill:#ffe1e1,color:black
+    style Relay2 fill:#ffe1e1,color:black
+    style Relay3 fill:#ffe1e1,color:black
+    style Host fill:#fff4e1,color:black
 ```
-
-### Components
 
 - **org-social.el**: The official Emacs client for Org Social. It provides a full-featured interface for reading, writing, and interacting with Org Social feeds. It handles feed synchronization, post creation, reply management, and integration with the Relay system.
 
 - **Org Social Relay**: A P2P system that acts as an intermediary between all Org Social files. It scans the network creating an index of users, mentions, replies, groups and threads. Multiple Relay nodes synchronize with each other to distribute the load and share information across the network.
 
-- **Org Social Live Preview**: A real-time preview service that renders your `social.org` file as you edit it. It helps you visualize how your posts and formatting will appear to your followers before publishing.
+- **Org Social Live Preview**: A real-time preview service that renders your posts. It helps you to make them viewable on other social networks or in the browser.
 
 - **Org Social Host**: A free hosting service specifically designed for Org Social files. It provides a simple way to host your `social.org` file with remote synchronization capabilities. Hosted files are automatically registered with the Relay network for discoverability.
-
-These components work together to create a seamless experience: you write and manage your posts using org-social.el, preview them with Live Preview, host them on Org Social Host (or any web server), and the Relay network ensures your content is discoverable and interactions are tracked across the decentralized network.
 
 ## Other Cool Things You Can Do
 
