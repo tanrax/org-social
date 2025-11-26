@@ -894,6 +894,35 @@ Then you can set up your own instance of [Social Org Relay](https://github.com/t
 
 Otherwise, you can use a [public Relay node](/org-social-relay-list.txt).
 
+## Architecture
+
+The Org Social ecosystem consists of several interconnected components that work together to provide a complete decentralized social networking experience:
+
+```mermaid
+flowchart TB
+    A["org-social.el<br/>(Emacs Client)"] --> B["Org Social Relay"]
+    A --> C["Org Social Live Preview"]
+    A --> D["Org Social Host"]
+    D --> B
+
+    style A fill:#733c9f,color:white
+    style B fill:#ffe1e1,color:black
+    style C fill:#e1f5ff,color:black
+    style D fill:#fff4e1,color:black
+```
+
+### Components
+
+- **org-social.el**: The official Emacs client for Org Social. It provides a full-featured interface for reading, writing, and interacting with Org Social feeds. It handles feed synchronization, post creation, reply management, and integration with the Relay system.
+
+- **Org Social Relay**: A P2P system that acts as an intermediary between all Org Social files. It scans the network creating an index of users, mentions, replies, groups and threads. Multiple Relay nodes synchronize with each other to distribute the load and share information across the network.
+
+- **Org Social Live Preview**: A real-time preview service that renders your `social.org` file as you edit it. It helps you visualize how your posts and formatting will appear to your followers before publishing.
+
+- **Org Social Host**: A free hosting service specifically designed for Org Social files. It provides a simple way to host your `social.org` file with remote synchronization capabilities. Hosted files are automatically registered with the Relay network for discoverability.
+
+These components work together to create a seamless experience: you write and manage your posts using org-social.el, preview them with Live Preview, host them on Org Social Host (or any web server), and the Relay network ensures your content is discoverable and interactions are tracked across the decentralized network.
+
 ## Other Cool Things You Can Do
 
 Beyond the standard social networking use cases, Org Social's simplicity and flexibility open up some creative possibilities:
