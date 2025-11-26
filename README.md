@@ -921,11 +921,11 @@ flowchart TB
 
 - **org-social.el**: The official Emacs client for Org Social. It provides a full-featured interface for reading, writing, and interacting with Org Social feeds. It handles feed synchronization, post creation, reply management, and integration with the Relay system.
 
-- **Org Social Relay**: A P2P system that acts as an intermediary between all Org Social files. It scans the network creating an index of users, mentions, replies, groups and threads. Multiple Relay nodes synchronize with each other to distribute the load and share information across the network.
+- **Org Social Relay** (Optional): A P2P system that acts as an intermediary between all Org Social files. It scans the network creating an index of users, mentions, replies, groups and threads. Multiple Relay nodes synchronize with each other to distribute the load and share information across the network.
 
-- **Org Social Live Preview**: A real-time preview service that renders your posts. It helps you to make them viewable on other social networks or in the browser.
+- **Org Social Live Preview** (Optional): A real-time preview service that renders your posts. It helps you to make them viewable on other social networks or in the browser.
 
-- **Org Social Host**: A free hosting service specifically designed for Org Social files. It provides a simple way to host your `social.org` file with remote synchronization capabilities. Hosted files are automatically registered with the Relay network for discoverability.
+- **Org Social Host** (Optional): A free hosting service specifically designed for Org Social files. It provides a simple way to host your `social.org` file with remote synchronization capabilities. Hosted files are automatically registered with the Relay network for discoverability.
 
 ## Other Cool Things You Can Do
 
