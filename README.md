@@ -450,15 +450,15 @@ I want to share [[https://www.gnu.org/software/emacs/manual/pdf/emacs.pdf][Emacs
 
 Because of the decentralised nature it is very difficult to discover new users. You have to think of it as a technology similar to email or RSS feeds. The natural flow to find new addresses, URLs, or nodes, is because you have been given the address or because you have seen a link on a website. Org Social is the same. You have to share your address with your friends or on social media. The more you interact with the community, the more Org social files you can discover.
 
-However, you have an alternative solution. You can register your feed in a public [Org Social Relay](https://github.com/tanrax/org-social?tab=readme-ov-file#org-social-relay) Node.
+However, Org Social has a network of nodes, Relays, which are responsible for reading the feeds, synchronizing them, and discovering each `social.org` to other users.
 
-For example:
+If you use the Emacs client, it will register you automatically. Otherwise, you can do it with a single command:
 
 ```sh
 curl -X POST https://relay.org-social.org/feeds/ -d '{"feed": "https://example.com/social.org"}' -H "Content-Type: application/json"
 ```
 
-This will share your feed with other public nodes and make it easier for others to discover you.
+In a couple of hours, your feed will be visible to all Relays. When someone enters the "Discover" section within their client, they will be able to follow you.
 
 ## FAQ
 
@@ -492,6 +492,7 @@ Yes. You can use the HTTP header `Content-Range` with `Content-Length` to pagina
 
 You can use any web server that supports plain text files.
 
+- Org Social Host: Free service that also allows you to sync remotely.
 - Static hosting services: Tiiny Host, Static.run, Netlify, Vercel, Cloudflare Pages, etc.
 - Repositories: GitHub Pages, Gitea, or any other service that allows you to host plain text files.
 - Self-hosted: [Nginx](https://www.nginx.com/), [Apache](https://httpd.apache.org/) or [Caddy](https://caddyserver.com/).
