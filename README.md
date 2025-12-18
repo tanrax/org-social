@@ -529,6 +529,17 @@ The best strategy is to set up a permanent redirect (301) from the old URL to th
 
 The other option is to notify each of your followers and add your new URL to a public Relay (it will automatically notify the rest, and your old URL will eventually be deleted when it receives a 404 error).
 
+### Why are the titles empty? `**` Isn't this the place for a title?
+
+It's a recurring, logical, and very obvious suggestion. You've raised this same point with me countless times. Why leave an empty `**` at the beginning that can be collapsed and gives no clue as to its content? It's the natural place for a title.
+
+My reasons are as follows:
+
+- The context of Org Social posts is similar to Mastodon or X/Twitter. It wouldn't fit in for posts to have titles.
+- It improves readability. There's no need to distinguish between titles and content. Within a post, you can have any hierarchy of titles you want.
+- From a technical standpoint, it's simpler to implement and maintain. Fewer special cases.
+- Who should occupy that space, the ID or the title? No sibling rivalry. The technical part is a property, the ID, and the content is part of the post.
+
 ## Use cases
 
 ### Make a new post
