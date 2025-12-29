@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5
+
+- Added `:VISIBILITY:` property to control post visibility. When set to `mention`, posts should only be displayed to mentioned users extracted from org-social links in the post body.
+
 ## 1.4
 
 - Added `:INCLUDE:` property to boost/share posts from other users.
