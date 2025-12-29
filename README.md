@@ -174,7 +174,7 @@ Run this command:
 curl -X POST https://relay.org-social.org/feeds/ -d '{"feed": "https://my-awesome-website.com/social.org"}' -H "Content-Type: application/json"
 ```
 
-(Replace `https://my-awesome-website.com/social.org` with your actual URL.) You needs to do it only once.
+(Replace `https://my-awesome-website.com/social.org` with your actual URL.) You need to do it only once.
 
 Now it's your turn to learn how to interact with Org Social's syntax and the community. Check the [Use cases](#use-cases) section or install the [official client](https://github.com/tanrax/org-social.el).
 
