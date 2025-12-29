@@ -339,7 +339,7 @@ Available properties:
 | `MOOD` | Mood indicator | `😊`, `❤`, `🚀` | ❌ |
 | `INCLUDE` | Post being boosted/shared. Format: `URL` + `#` +`ID` | `https://alice.com/social.org#2025-05-01T10:00:00+0100` | ❌ |
 | `MIGRATION` | Indicates account migration from old to new URL. Format: `<old-url> <new-url>` | `https://old-address.com/social.org https://new-address.com/social.org` | ❌ |
-| `VISIBILITY` | Controls post visibility. When set to `mention`, the post should only be displayed to mentioned users. Client extracts mentioned users from org-social links in the post body. Does not apply to posts with `GROUP` property. | `mention` | ❌ |
+| `VISIBILITY` | Controls post visibility. Values: `public` (default if not specified) or `mention`. When set to `mention`, the post should only be displayed to mentioned users. Client extracts mentioned users from org-social links in the post body. Does not apply to posts with `GROUP` property. | `public`, `mention` | ❌ |
 
 **No property is multiple**.
 
