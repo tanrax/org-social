@@ -58,6 +58,7 @@ And explore the syntax and join the community!
 	- [Make a poll](#make-a-poll)
 	- [Vote on a poll](#vote-on-a-poll)
 	- [Mention a user](#mention-a-user)
+	- [Create a mention-only post](#create-a-mention-only-post)
 	- [Follow a user](#follow-a-user)
 	- [Subscribe to a group](#subscribe-to-a-group)
 	- [React to a post with emoji](#react-to-a-post-with-emoji)
@@ -316,6 +317,7 @@ Each post uses Org Mode's properties drawer for metadata:
 :CLIENT: org-social.el
 :REPLY_TO: https://foo.org/social.org#2025-02-03T23:05:00+0100
 :GROUP: Emacs https://example-relay.com
+:VISIBILITY: mention
 :MOOD: 😊
 :END:
 
@@ -337,6 +339,7 @@ Available properties:
 | `MOOD` | Mood indicator | `😊`, `❤`, `🚀` | ❌ |
 | `INCLUDE` | Post being boosted/shared. Format: `URL` + `#` +`ID` | `https://alice.com/social.org#2025-05-01T10:00:00+0100` | ❌ |
 | `MIGRATION` | Indicates account migration from old to new URL. Format: `<old-url> <new-url>` | `https://old-address.com/social.org https://new-address.com/social.org` | ❌ |
+| `VISIBILITY` | Controls post visibility. When set to `mention`, the post should only be displayed to mentioned users. Client extracts mentioned users from org-social links in the post body. Does not apply to posts with `GROUP` property. | `mention` | ❌ |
 
 **No property is multiple**.
 
@@ -369,6 +372,49 @@ You can mention multiple users in a single post:
 
 Good morning [[org-social:https://example.org/social.org][bob]] and [[org-social:https://alice.com/social.org][alice]]! What are you doing today?
 ```
+
+### Visibility
+
+By default, all posts are public. However, you can control post visibility using the `:VISIBILITY:` property to create mention-only posts that should only be displayed to mentioned users.
+
+When you set `:VISIBILITY: mention`, clients should:
+1. Parse the post body to extract all `[[org-social:URL][name]]` links
+2. Only display the post to the extracted mentioned users and the post author
+3. Optionally display the post to users who have already participated in the thread
+
+**Important:** This is a UI display suggestion for clients, not a security or privacy feature. Org Social files are public by design. Anyone with access to your `social.org` URL can read all posts regardless of visibility settings. For true privacy, use HTTP authentication on your web server.
+
+Example of a mention-only post:
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:00:00+0100
+:VISIBILITY: mention
+:END:
+
+Hey [[org-social:https://bob.com/social.org][bob]] and [[org-social:https://carol.net/social.org][carol]], what do you think about the new feature?
+```
+
+In this example, clients should only display this post to:
+- The post author
+- `https://bob.com/social.org`
+- `https://carol.net/social.org`
+
+**Visibility and Groups:** The `:VISIBILITY:` property does not apply to posts with the `:GROUP:` property. Group posts are always visible to all group members.
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T12:00:00+0100
+:GROUP: Emacs https://example-relay.com
+:VISIBILITY: mention
+:END:
+
+This post is in a group, so VISIBILITY is ignored and the post is visible to all group members.
+```
+
+**Visibility in Threads:** Each post declares its own visibility independently. There is no inheritance of visibility from parent to child posts. When displaying threads, clients should show posts according to each post's individual visibility setting while maintaining thread context.
 
 ### Multiline Posts
 
@@ -677,6 +723,44 @@ The format is `[[org-social:URL of the user's social.org][nickname]]`
 :END:
 
 Hello [[org-social:https://example-user.com/social.org][Alice]], how are you?
+```
+
+### Create a mention-only post
+
+To create a post that should only be visible to mentioned users, use the `:VISIBILITY: mention` property. The client will automatically extract mentioned users from the post body and only display the post to them.
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T14:00:00+0100
+:VISIBILITY: mention
+:END:
+
+Hey [[org-social:https://bob.com/social.org][Bob]] and [[org-social:https://carol.net/social.org][Carol]], I wanted to discuss the project privately with you both.
+```
+
+This post will only be displayed to:
+- The author
+- `https://bob.com/social.org`
+- `https://carol.net/social.org`
+
+**Important notes:**
+- This is a UI display preference for clients, not a security feature
+- The post remains publicly accessible in your `social.org` file
+- For true privacy, use HTTP authentication on your web server
+- Does not work with posts that have the `:GROUP:` property
+
+You can also reply to a mention-only post while maintaining visibility:
+
+```org
+**
+:PROPERTIES:
+:ID: 2025-05-01T15:00:00+0100
+:REPLY_TO: https://alice.com/social.org#2025-05-01T14:00:00+0100
+:VISIBILITY: mention
+:END:
+
+[[org-social:https://alice.com/social.org][Alice]], I agree with your points. [[org-social:https://carol.net/social.org][Carol]] what do you think?
 ```
 
 ### Follow a user
