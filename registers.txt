@@ -13,7 +13,6 @@ https://shom.dev/social.org
 https://comacero.eu/social.org
 https://cybervalley.org/org-social-leandro/org-social.org
 https://concavi.net/social.org
-http://gemini.quietplace.xyz/~razzlom/social.org
 https://notxor.nueva-actitud.org/social.org
 https://codeberg.org/mester/CosasSociales/raw/branch/main/social.org
 https://www.draketo.de/social.org
