@@ -1049,6 +1049,36 @@ Or IRC channel:
 
 - `#org-social` on Libera.Chat
 
+## Ecosystem Developers
+
+### Active Contributors
+
+These developers maintain alternative clients and tools for the Org Social ecosystem:
+
+- **[AdsanTheGreat](https://github.com/AdsanTheGreat)** - Creator of [org-social-rs](https://github.com/AdsanTheGreat/org-social-rs), a CLI/TUI client written in Rust
+  - Website: [adsan.dev](https://adsan.dev)
+  - Org Social Feed: [adsan.dev/social.org](https://adsan.dev/social.org)
+
+- **[cherryramatisdev](https://github.com/cherryramatisdev)** - Creator of [org-social.nvim](https://github.com/cherryramatisdev/org-social.nvim), a Neovim client
+  - Website: [cherryramatis.xyz](https://cherryramatis.xyz)
+  - Org Social Feed: [cherryramatis.xyz/social.org](https://cherryramatis.xyz/social.org)
+
+### Community Contributors
+
+These developers contribute to the Org Social ecosystem through integrations, tooling, feedback, and community support:
+
+- **[johnhamelink](https://github.com/johnhamelink)**
+  - Website: [johnhame.link](https://johnhame.link)
+  - Org Social Feed: [johnhame.link/social.org](https://johnhame.link/social.org)
+
+- **[tux0r (dertuxmalwieder)](https://github.com/dertuxmalwieder)**
+  - Website: [rosaelefanten.org](https://rosaelefanten.org)
+  - Org Social Feed: [rosaelefanten.org/social.org](https://rosaelefanten.org/social.org)
+
+- **[TheSolarPrincess](https://github.com/TheSolarPrincess)**
+  - Website: [thesolarprincess.site](https://thesolarprincess.site)
+  - Org Social Feed: [thesolarprincess.site/social.org](https://thesolarprincess.site/social.org)
+
 ## Thanks
 
 Thanks to all the people who have contributed to this project by reporting issues, making suggestions, or simply using it. ❤
