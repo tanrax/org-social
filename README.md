@@ -61,6 +61,7 @@ And explore the syntax and join the community!
 	- [Create a mention-only post](#create-a-mention-only-post)
 	- [Follow a user](#follow-a-user)
 	- [Subscribe to a group](#subscribe-to-a-group)
+	- [Pin a post to your profile](#pin-a-post-to-your-profile)
 	- [React to a post with emoji](#react-to-a-post-with-emoji)
 	- [Create a multiline post with rich formatting](#create-a-multiline-post-with-rich-formatting)
 	- [Migrate your account to a new URL](#migrate-your-account-to-a-new-url)
@@ -284,6 +285,9 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 #+AVATAR: https://example.com/avatar.jpg
 #+LINK: https://my-awesome-website.com
 #+LINK: https://my-blog.com
+#+LOCATION: Valencia, Spain
+#+BIRTHDAY: 1990-05-15
+#+LANGUAGE: en es ca
 #+FOLLOW: myBestFriend https://jane.com/social.org
 #+FOLLOW: https://lucy.com/social.org
 #+GROUP: Emacs https://example-relay.com
@@ -291,6 +295,7 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 #+CONTACT: mailto:my-email@example.com
 #+CONTACT: xmpp:my@account.com
 #+CONTACT: https://mastodon.social/@my-account
+#+PINNED: 2025-04-28T12:00:00+0100
 ```
 
 | Field | Description | Multiple | Required |
@@ -300,13 +305,41 @@ Global metadata is defined using Org Mode's standard keywords at the top of the 
 | `DESCRIPTION` | A short description about yourself | ❌ | ❌ |
 | `AVATAR` | The URL of your avatar image. Square image with at least 128x128 pixels in JPG or PNG format. | ❌ | ❌ |
 | `LINK` | Links to your personal website or profile | ✅ | ❌ |
+| `LOCATION` | Your location (city, country, or any text describing where you are) | ❌ | ❌ |
+| `BIRTHDAY` | Your birthday in YYYY-MM-DD format | ❌ | ❌ |
+| `LANGUAGE` | Space-separated language codes (ISO 639-1) that you speak | ❌ | ❌ |
 | `FOLLOW` | Users you follow. Format: <nickname to remember (Optional)> <feed url> `https://example.com/social.org` or `myBestFriend https://example.com/social.org`. Not to be confused with the user-defined nickname. | ✅ | ❌ |
 | `GROUP` | Group you wish to subscribe to. Format: <group name> <relay url> `Emacs https://example-relay.com` | ✅ | ❌ |
 | `CONTACT` | Contact information: Email, XMPP, Matrix, ActivityPub, etc. | ✅ | ❌ |
+| `PINNED` | Post ID (timestamp) of the post pinned to the top of your profile | ❌ | ❌ |
 
 ### Post Metadata
 
-Each post uses Org Mode's properties drawer for metadata:
+Each post uses Org Mode's properties drawer for metadata. The post ID (timestamp) can be specified in two ways:
+
+1. **In the header** (after `**`): `** 2025-05-01T12:00:00+0100`
+2. **In the properties drawer**: `:ID: 2025-05-01T12:00:00+0100`
+
+Both formats are valid. If the ID appears in both places, the header value takes priority.
+
+**Example with ID in header:**
+
+```org
+** 2025-05-01T12:00:00+0100
+:PROPERTIES:
+:LANG: en
+:TAGS: emacs org-social
+:CLIENT: org-social.el
+:REPLY_TO: https://foo.org/social.org#2025-02-03T23:05:00+0100
+:GROUP: Emacs https://example-relay.com
+:VISIBILITY: mention
+:MOOD: 😊
+:END:
+
+This is the content of my post with the ID in the header.
+```
+
+**Example with ID in properties (traditional format):**
 
 ```org
 **
@@ -321,14 +354,14 @@ Each post uses Org Mode's properties drawer for metadata:
 :MOOD: 😊
 :END:
 
-This is the content of my post with some metadata.
+This is the content of my post with the ID in properties.
 ```
 
 Available properties:
 
 | Property | Description | Example | Required |
 |----------|-------------|----------| ---------|
-| `ID` | Unique timestamp identifier (RFC 3339 format). Posts with future dates are considered scheduled posts and should not be displayed by clients until the scheduled time. | `2025-05-01T12:00:00+0100` | ✅ |
+| `ID` | Unique timestamp identifier (RFC 3339 format). Can be specified in the post header (after `**`) or in the properties drawer. If both are present, the header value takes priority. Posts with future dates are considered scheduled posts and should not be displayed by clients until the scheduled time. | `2025-05-01T12:00:00+0100` | ✅ |
 | `LANG` | Language code of the post | `en`, `es`, `fr` | ❌ |
 | `TAGS` | Space-separated tags | `emacs org-social` | ❌ |
 | `CLIENT` | Client application used | `org-social.el` | ❌ |
@@ -575,22 +608,40 @@ The best strategy is to set up a permanent redirect (301) from the old URL to th
 
 The other option is to notify each of your followers and add your new URL to a public Relay (it will automatically notify the rest, and your old URL will eventually be deleted when it receives a 404 error).
 
-### Why are the titles empty? `**` Isn't this the place for a title?
+### Why are the headers `**` sometimes empty and sometimes have a timestamp?
 
-It's a recurring, logical, and very obvious suggestion. You've raised this same point with me countless times. Why leave an empty `**` at the beginning that can be collapsed and gives no clue as to its content? It's the natural place for a title.
+The header after `**` can contain the post ID (timestamp) or be empty:
 
-My reasons are as follows:
+- `** 2025-05-01T12:00:00+0100` - ID in the header (more visible when navigating the file)
+- `** ` - Empty header, ID in properties drawer (traditional format)
 
-- The context of Org Social posts is similar to Mastodon or X/Twitter. It wouldn't fit in for posts to have titles.
-- It improves readability. There's no need to distinguish between titles and content. Within a post, you can have any hierarchy of titles you want.
-- From a technical standpoint, it's simpler to implement and maintain. Fewer special cases.
-- Who should occupy that space, the ID or the title? No sibling rivalry. The technical part is a property, the ID, and the content is part of the post.
+Both formats are valid. When the ID is in the header, it's easier to see when browsing the file in org-mode. When it's in the properties drawer, the headers remain visually uniform.
+
+**Why not use this space for a title?**
+
+- The context of Org Social posts is similar to Mastodon or X/Twitter, where posts don't typically have titles
+- It improves readability - there's no need to distinguish between titles and content
+- Within a post, you can have any hierarchy of titles you want using `***`, `****`, etc.
+- From a technical standpoint, it's simpler to implement and maintain
 
 ## Use cases
 
 ### Make a new post
 
-You can make a new post by adding a new headline under the `* Posts` section. Use the `:ID:` property to set the unique identifier for the post.
+You can make a new post by adding a new headline under the `* Posts` section. The post ID (timestamp) can be specified in the header or in the properties drawer.
+
+**Option 1: ID in the header (after `**`)**
+
+```org
+* Posts
+** 2025-05-01T12:00:00+0100
+:PROPERTIES:
+:END:
+
+This is my new post on Org-social with ID in the header.
+```
+
+**Option 2: ID in properties drawer (traditional)**
 
 ```org
 * Posts
@@ -599,10 +650,10 @@ You can make a new post by adding a new headline under the `* Posts` section. Us
 :ID: 2025-05-01T12:00:00+0100
 :END:
 
-This is my new post on Org-social.
+This is my new post on Org-social with ID in properties.
 ```
 
-The other properties are optional.
+Both formats are valid. The other properties are optional.
 
 If you want it to be published in a group, use the `:GROUP:` property.
 
@@ -624,9 +675,8 @@ To reply to a post, create a new headline with the `:REPLY_TO:` property set to 
 The format is: `receiver URL` + `#` + `ID of the post being replied to`.
 
 ```org
-**
+** 2025-05-01T12:30:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:30:00+0100
 :REPLY_TO: https://example-receiver.com/social.org#2025-05-01T12:00:00+0100
 :END:
 
@@ -636,9 +686,8 @@ I agree with your point about the new feature. It will be very useful for many u
 If you just want to leave a reaction on a post: ❤, ⭐, 🚀, 👍... You can use `:MOOD:` with the emoji and leave the body blank.
 
 ```org
-**
+** 2025-05-01T12:30:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:30:00+0100
 :REPLY_TO: https://example-receiver.com/social.org#2025-05-01T12:00:00+0100
 :MOOD: ❤
 :END:
@@ -654,9 +703,8 @@ The format is: `feed URL` + `#` + `ID of the post being boosted`.
 **Simple boost (no comment)**
 
 ```org
-**
+** 2025-05-01T14:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T14:00:00+0100
 :INCLUDE: https://alice.com/social.org#2025-05-01T10:00:00+0100
 :END:
 
@@ -665,9 +713,8 @@ The format is: `feed URL` + `#` + `ID of the post being boosted`.
 **Quote boost (with comment)**
 
 ```org
-**
+** 2025-05-01T14:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T14:00:00+0100
 :INCLUDE: https://alice.com/social.org#2025-05-01T10:00:00+0100
 :END:
 
@@ -679,9 +726,8 @@ Guys, you have to see this!
 To create a poll, use the `:POLL_END:` property to set the end time of the poll. Use a checkbox list to define the options.
 
 ```org
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :POLL_END: 2025-05-01T13:00:00+0100
 :END:
 
@@ -698,9 +744,8 @@ Do you have a pet?
 To vote on a poll, create a new post with the `:REPLY_TO:` property set to the ID of the poll post. Use the `:POLL_OPTION:` property to indicate your choice.
 
 ```org
-**
+** 2025-05-01T12:30:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:30:00+0100
 :REPLY_TO: https://example-poll.com/social.org#2025-05-01T12:00:00+0100
 :POLL_OPTION: Cat
 :END:
@@ -717,9 +762,8 @@ To mention a user, use the custom link format defined in the `LINK` property. Th
 The format is `[[org-social:URL of the user's social.org][nickname]]`
 
 ```org
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :END:
 
 Hello [[org-social:https://example-user.com/social.org][Alice]], how are you?
@@ -730,9 +774,8 @@ Hello [[org-social:https://example-user.com/social.org][Alice]], how are you?
 To create a post that should only be visible to mentioned users, use the `:VISIBILITY: mention` property. The client will automatically extract mentioned users from the post body and only display the post to them.
 
 ```org
-**
+** 2025-05-01T14:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T14:00:00+0100
 :VISIBILITY: mention
 :END:
 
@@ -753,9 +796,8 @@ This post will only be displayed to:
 You can also reply to a mention-only post while maintaining visibility:
 
 ```org
-**
+** 2025-05-01T15:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T15:00:00+0100
 :REPLY_TO: https://alice.com/social.org#2025-05-01T14:00:00+0100
 :VISIBILITY: mention
 :END:
@@ -787,14 +829,40 @@ To subscribe to a group, add the `#+GROUP:` keyword at the top of your file with
 #+GROUP: Org Mode https://example-relay.com
 ```
 
+### Pin a post to your profile
+
+To pin a post to the top of your profile, add the `#+PINNED:` keyword at the top of your file with the ID (timestamp) of the post you want to pin.
+
+First, identify the post you want to pin by finding its ID. The ID is the timestamp in the post header or in the `:ID:` property:
+
+```org
+* Posts
+** 2025-04-28T12:00:00+0100
+:PROPERTIES:
+:END:
+
+This is my most important post that I want everyone to see!
+```
+
+Then, add the `#+PINNED:` field in your global metadata with that ID:
+
+```org
+#+TITLE: Bob's journal
+#+NICK: Bob
+#+PINNED: 2025-04-28T12:00:00+0100
+```
+
+The pinned post will appear at the top of your profile when clients display it. You can only pin one post at a time - if you update the `#+PINNED:` value, the new post will become the pinned one.
+
+**Note:** Clients that support pinned posts will display it prominently at the top of your profile, similar to pinned tweets on Twitter or pinned posts on Mastodon.
+
 ### React to a post with emoji
 
 To react to a post with an emoji (❤, ⭐, 🚀, 👍, etc.), create a reply with the `:MOOD:` property and leave the body blank.
 
 ```org
-**
+** 2025-05-01T12:30:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:30:00+0100
 :REPLY_TO: https://example-receiver.com/social.org#2025-05-01T12:00:00+0100
 :MOOD: ❤
 :END:
@@ -806,9 +874,8 @@ To react to a post with an emoji (❤, ⭐, 🚀, 👍, etc.), create a reply wi
 Org Mode supports rich content including multiple paragraphs, lists, bold/italic text, code blocks, tables with calculations, and links.
 
 ```org
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :END:
 
 This is a multiline post with rich content.
@@ -838,27 +905,25 @@ And much more!
 
 ### Schedule a post
 
-Posts with a future date in their `ID` property are considered scheduled posts. These posts will not be displayed by clients until their scheduled time arrives.
+Posts with a future date in their ID (whether in the header or properties) are considered scheduled posts. These posts will not be displayed by clients until their scheduled time arrives.
 
 ```org
-**
+** 40000-01-01T00:00:00+0100
 :PROPERTIES:
-:ID: 40000-01-01T00:00:00+0100
 :END:
 
 In the grim darkness of the far future, there is only war.
 ```
 
-Clients should filter out posts where the `ID` timestamp is in the future. Once the scheduled time passes, the post will automatically become visible when clients fetch the feed.
+Clients should filter out posts where the ID timestamp is in the future. Once the scheduled time passes, the post will automatically become visible when clients fetch the feed.
 
 ### Add a title to a post
 
 You don't need a special property to add a title to your post. Simply use Org Mode's native heading syntax with `***`:
 
 ```org
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :END:
 
 *** My First Blog Post
@@ -929,9 +994,8 @@ If you need to move your `social.org` file to a new URL, you can create a migrat
 Create a post with the `:MIGRATION:` property containing both your old and new URLs:
 
 ```org
-**
+** 2025-05-15T10:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-15T10:00:00+0100
 :MIGRATION: https://old-address.com/social.org https://new-address.com/social.org
 :END:
 
