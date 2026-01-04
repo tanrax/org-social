@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6
+
+- Added `#+LOCATION:` global metadata field for user location (city, country).
+- Added `#+BIRTHDAY:` global metadata field for user birthday in YYYY-MM-DD format.
+- Added `#+LANGUAGE:` global metadata field for space-separated language codes (ISO 639-1) that the user speaks.
+- Added `#+PINNED:` global metadata field to pin a post to the top of the profile using its ID (timestamp).
+- Post ID can now be specified in the header (after `**`) in addition to the `:ID:` property in the properties drawer. Both formats are valid. If both are present, the header value takes priority.
+
 ## 1.5
 
 - Added `:VISIBILITY:` property to control post visibility. When set to `mention`, posts should only be displayed to mentioned users extracted from org-social links in the post body.
