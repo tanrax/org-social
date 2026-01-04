@@ -156,9 +156,8 @@ Create a file called `social.org` and add your basic information and your first 
 #+FOLLOW: https://jane.com/social.org
 
 * Posts
-**
+** 2024-12-12T12:00:00+0100
 :PROPERTIES:
-:ID: 2024-12-12T12:00:00+0100
 :END:
 
 Hello Org Social!
@@ -387,9 +386,8 @@ Org Social uses Org Mode's link system for mentions. First, you can define a cus
 Then mention users using this format:
 
 ```org
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :END:
 
 Welcome to Org Social [[org-social:https://example.org/social.org][bob]]!
@@ -398,9 +396,8 @@ Welcome to Org Social [[org-social:https://example.org/social.org][bob]]!
 You can mention multiple users in a single post:
 
 ```org
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :END:
 
 Good morning [[org-social:https://example.org/social.org][bob]] and [[org-social:https://alice.com/social.org][alice]]! What are you doing today?
@@ -420,9 +417,8 @@ When you set `:VISIBILITY: mention`, clients should:
 Example of a mention-only post:
 
 ```org
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :VISIBILITY: mention
 :END:
 
@@ -437,9 +433,8 @@ In this example, clients should only display this post to:
 **Visibility and Groups:** The `:VISIBILITY:` property does not apply to posts with the `:GROUP:` property. Group posts are always visible to all group members.
 
 ```org
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :GROUP: Emacs https://example-relay.com
 :VISIBILITY: mention
 :END:
@@ -454,9 +449,8 @@ This post is in a group, so VISIBILITY is ignored and the post is visible to all
 Org Mode naturally supports multiline content. Unlike plain text formats, you can write posts with multiple paragraphs, lists, and rich formatting:
 
 ```org
-** <2025-05-01 Thu 12:00> A rich post
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :END:
 
 This is a multiline post with rich content.
@@ -484,9 +478,8 @@ And much more!
 Polls use Org Mode's checkbox lists with special properties:
 
 ```org
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :POLL_END: 2025-05-01T13:00:00+0100
 :END:
 
@@ -503,9 +496,8 @@ Choose your favorite:
 To vote on a poll, create a vote post:
 
 ```org
-**
+** 2025-05-01T13:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T13:00:00+0100
 :REPLY_TO: https://example.org/social.org#2025-05-01T12:00:00+0100
 :POLL_OPTION: Emacs Lisp
 :END:
@@ -518,9 +510,8 @@ I choose Emacs Lisp as my favorite programming language!
 Reference media files using Org Mode's link syntax. You can link to images, videos, or any other media:
 
 ```org
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :END:
 
 I want to share [[https://www.gnu.org/software/emacs/manual/pdf/emacs.pdf][Emacs Manual PDF]] with everyone.
@@ -553,9 +544,8 @@ Yes, check this example:
 #+AVATAR: https://blog.example.com/avatar.jpg
 
 * Posts
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :LANG: en
 :CATEGORY: programming
 :URL: https://blog.example.com/my-awesome-article
@@ -659,9 +649,8 @@ If you want it to be published in a group, use the `:GROUP:` property.
 
 ```org
 * Posts
-**
+** 2025-05-01T12:00:00+0100
 :PROPERTIES:
-:ID: 2025-05-01T12:00:00+0100
 :GROUP: Emacs https://example-relay.com
 :END:
 
