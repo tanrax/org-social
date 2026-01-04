@@ -357,22 +357,24 @@ This is the content of my post with the ID in properties.
 
 Available properties:
 
-| Property | Description | Example | Required |
-|----------|-------------|----------| ---------|
-| `ID` | Unique timestamp identifier (RFC 3339 format). Can be specified in the post header (after `**`) or in the properties drawer. If both are present, the header value takes priority. Posts with future dates are considered scheduled posts and should not be displayed by clients until the scheduled time. | `2025-05-01T12:00:00+0100` | ✅ |
-| `LANG` | Language code of the post | `en`, `es`, `fr` | ❌ |
-| `TAGS` | Space-separated tags | `emacs org-social` | ❌ |
-| `CLIENT` | Client application used | `org-social.el` | ❌ |
-| `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` | `https://foo.org/social.org#2025-02-03T23:05:00+0100` | ❌ |
-| `POLL_END` | End time for polls (RFC 3339 format) | `2025-05-01T13:00:00+0100` | ❌ |
-| `POLL_OPTION` | Selected option in a poll vote | `Emacs Lisp` | ❌ |
-| `GROUP` | Group the post belongs to. Format: <group name> <relay url> | `Emacs https://example-relay.com` | ❌ |
-| `MOOD` | Mood indicator | `😊`, `❤`, `🚀` | ❌ |
-| `INCLUDE` | Post being boosted/shared. Format: `URL` + `#` +`ID` | `https://alice.com/social.org#2025-05-01T10:00:00+0100` | ❌ |
-| `MIGRATION` | Indicates account migration from old to new URL. Format: `<old-url> <new-url>` | `https://old-address.com/social.org https://new-address.com/social.org` | ❌ |
-| `VISIBILITY` | Controls post visibility. Values: `public` (default if not specified) or `mention`. When set to `mention`, the post should only be displayed to mentioned users. Client extracts mentioned users from org-social links in the post body. Does not apply to posts with `GROUP` property. | `public`, `mention` | ❌ |
+| Property | Description | Example |
+|----------|-------------|----------|
+| `ID` | Unique timestamp identifier (RFC 3339 format). **Required**. Can be specified in the post header (after `**`) or in the properties drawer. If both are present, the header value takes priority. Posts with future dates are considered scheduled posts and should not be displayed by clients until the scheduled time. | `2025-05-01T12:00:00+0100` |
+| `LANG` | Language code of the post | `en`, `es`, `fr` |
+| `TAGS` | Space-separated tags | `emacs org-social` |
+| `CLIENT` | Client application used | `org-social.el` |
+| `REPLY_TO` | ID of post being replied to. Format: `URL` + `#` +`ID` | `https://foo.org/social.org#2025-02-03T23:05:00+0100` |
+| `POLL_END` | End time for polls (RFC 3339 format) | `2025-05-01T13:00:00+0100` |
+| `POLL_OPTION` | Selected option in a poll vote | `Emacs Lisp` |
+| `GROUP` | Group the post belongs to. Format: <group name> <relay url> | `Emacs https://example-relay.com` |
+| `MOOD` | Mood indicator | `😊`, `❤`, `🚀` |
+| `INCLUDE` | Post being boosted/shared. Format: `URL` + `#` +`ID` | `https://alice.com/social.org#2025-05-01T10:00:00+0100` |
+| `MIGRATION` | Indicates account migration from old to new URL. Format: `<old-url> <new-url>` | `https://old-address.com/social.org https://new-address.com/social.org` |
+| `VISIBILITY` | Controls post visibility. Values: `public` (default if not specified) or `mention`. When set to `mention`, the post should only be displayed to mentioned users. Client extracts mentioned users from org-social links in the post body. Does not apply to posts with `GROUP` property. | `public`, `mention` |
 
-**No property is multiple**.
+**Notes:**
+- Only `ID` is required. All other properties are optional.
+- No property is multiple.
 
 ### Mentions
 
