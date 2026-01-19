@@ -1041,7 +1041,7 @@ First, you will need a [Relay-compatible client](https://github.com/tanrax/aweso
 
 Then you can set up your own instance of [Social Org Relay](https://github.com/tanrax/org-social-relay). Your node will automatically connect to other active Relay nodes and work with them to remove load from the network and share information. The more Relay nodes there are, the better the experience will be for everyone. It is currently an alpha technology that only allows participation by invitation. When the project is more mature, it will be open to everyone.
 
-Otherwise, you can use a [public Relay node](/org-social-relay-list.txt).
+Otherwise, you can use a [public Relay node](https://github.com/tanrax/org-social-relay/blob/main/relay-list.txt).
 
 ## Architecture
 
