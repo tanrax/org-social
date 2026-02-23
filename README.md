@@ -1132,6 +1132,10 @@ These developers contribute to the Org Social ecosystem through integrations, to
   - Website: [thesolarprincess.site](https://thesolarprincess.site)
   - Org Social Feed: [thesolarprincess.site/social.org](https://thesolarprincess.site/social.org)
 
+## Contributing
+
+Contributions are welcome! Please see the [contribution guidelines](https://git.andros.dev/andros/contribute) for instructions on how to submit issues or pull requests.
+
 ## Thanks
 
 Thanks to all the people who have contributed to this project by reporting issues, making suggestions, or simply using it. ❤
