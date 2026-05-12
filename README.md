@@ -38,6 +38,7 @@ You can use it as:
 Review current clients:
 
 - [Official client](https://github.com/tanrax/org-social.el)
+- [iOS app](https://apps.apple.com/app/org-social/id6764415116)
 - [Other clients and libraries](https://github.com/tanrax/awesome-org-social/)
 
 And explore the syntax and join the community!
