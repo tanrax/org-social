@@ -1152,9 +1152,15 @@ flowchart TB
     Relay2 <--> Relay3["Org Social Relay 3"]
     Relay3 <--> Relay1
 
+    Relay1 --> Push["Org Social Push"]
+    Push --> ClientiOS
+    Relay1 --> WebReading["Org Social Web Reading"]
+
     style ClientEmacs fill:#733c9f,color:white
     style ClientiOS fill:#733c9f,color:white
     style Preview fill:#e1f5ff,color:black
+    style Push fill:#e1f5ff,color:black
+    style WebReading fill:#e1f5ff,color:black
     style Relay1 fill:#ffe1e1,color:black
     style Relay2 fill:#ffe1e1,color:black
     style Relay3 fill:#ffe1e1,color:black
@@ -1164,6 +1170,10 @@ flowchart TB
 - *org-social.el*: The official Emacs client for Org Social. It provides a full-featured interface for reading, writing, and interacting with Org Social feeds. It handles feed synchronization, post creation, reply management, and integration with the Relay system.
 
 - *Org Social (iOS)*: The official iOS client for Org Social. Available on the [[https://apps.apple.com/us/app/org-social/id6764415116][App Store]], it provides a native mobile experience for reading, writing, and interacting with Org Social feeds.
+
+- *Org Social Push*: A push notification service that delivers real-time alerts to the iOS client when the Relay detects new mentions, replies, or interactions.
+
+- *Org Social Web Reading*: A public HTML timeline viewer. Reads Org Social feeds through the Relay and renders them as a web page, used for example as an embeddable iframe on [[https://org-social.org][org-social.org]].
 
 - *Org Social Relay* : A P2P system that acts as an intermediary between all Org Social files. It scans the network creating an index of users, mentions, replies, groups and threads. Multiple Relay nodes synchronize with each other to distribute the load and share information across the network.
 
