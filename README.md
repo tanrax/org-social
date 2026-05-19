@@ -17,7 +17,7 @@ Upload your file and let the community read it or interact with you.
 ```mermaid
 flowchart LR
     A["Your social.org file"] -- uploaded to --> B["Web Server<br/>example.com/social.org"]
-    B -- Fetch --> C["Emacs follower"] & D["Emacs follower"] & E["Emacs follower"]
+    B -- Fetch --> C["Follower"] & D["Follower"] & E["Follower"]
 
     style A fill:#77aa99,color:black
     style B fill:#fff4e1,color:black
@@ -35,10 +35,10 @@ You can use it as:
 - **Forum**: Create or participate in groups and discuss topics with other users.
 - **RSS/Atom alternative**: Share your articles in a simple and decentralized way.
 
-Review current clients:
+Review current official clients:
 
-- [Official client](https://github.com/tanrax/org-social.el)
-- [iOS app](https://apps.apple.com/app/org-social/id6764415116)
+- [org-social.el](https://github.com/tanrax/org-social.el) (Emacs)
+- [Org Social](https://apps.apple.com/us/app/org-social/id6764415116) (iOS)
 - [Other clients and libraries](https://github.com/tanrax/awesome-org-social/)
 
 And explore the syntax and join the community!
@@ -92,7 +92,7 @@ You decide how much you want to interact with the community:
 
 ```mermaid
 flowchart LR
-    A["Web Server<br/>foo.org/social.org"] & B["Web Server<br/>jane.com/social.org"] & C["Web Server<br/>bob.net/social.org"] -- Fetch --> D["Your Emacs"]
+    A["Web Server<br/>foo.org/social.org"] & B["Web Server<br/>jane.com/social.org"] & C["Web Server<br/>bob.net/social.org"] -- Fetch --> D["Your client"]
 
     style A fill:#fff4e1,color:black
     style B fill:#fff4e1,color:black
@@ -126,15 +126,15 @@ You will find a list of active feeds. Add the ones you want to follow with the `
 #+FOLLOW: https://jane.com/social.org
 ```
 
-Now you can read your friends' posts. We recommend the [official client](https://github.com/tanrax/org-social.el) for Emacs users, or check [other clients](https://github.com/tanrax/awesome-org-social/).
+Now you can read your friends' posts. We recommend the [official Emacs client](https://github.com/tanrax/org-social.el) or the [official iOS app](https://apps.apple.com/us/app/org-social/id6764415116), or check [other clients](https://github.com/tanrax/awesome-org-social/).
 
 ### ✍️ You write, reply and read
 
 ```mermaid
 flowchart TB
     A["Your social.org file"] -- uploaded to --> B["Your Web Server<br/>my-awesome-website.com/social.org"]
-    B -- Fetch --> C["Emacs follower"] & D["Emacs follower"]
-    E["Web Server<br/>foo.org/social.org"] & F["Web Server<br/>jane.com/social.org"] -- Fetch --> G["Your Emacs"]
+    B -- Fetch --> C["Follower"] & D["Follower"]
+    E["Web Server<br/>foo.org/social.org"] & F["Web Server<br/>jane.com/social.org"] -- Fetch --> G["Your client"]
 
     style A fill:#77aa99,color:black
     style B fill:#fff4e1,color:black
@@ -178,7 +178,7 @@ curl -X POST https://relay.org-social.org/feeds/ -d '{"feed": "https://my-awesom
 
 (Replace `https://my-awesome-website.com/social.org` with your actual URL.) You need to do it only once.
 
-Now it's your turn to learn how to interact with Org Social's syntax and the community. Check the [Use cases](#use-cases) section or install the [official client](https://github.com/tanrax/org-social.el).
+Now it's your turn to learn how to interact with Org Social's syntax and the community. Check the [Use cases](#use-cases) section or install an official client: [org-social.el](https://github.com/tanrax/org-social.el) (Emacs) or the [iOS app](https://apps.apple.com/us/app/org-social/id6764415116).
 
 ## Introduction
 
@@ -254,7 +254,7 @@ You can use any web server, but make sure it supports plain text files. You can 
 
 ### 5. Install a client to read and interact
 
-To consume and read other users' feeds, install the [official client](https://github.com/tanrax/org-social.el) for Emacs, or check [other available clients](https://github.com/tanrax/awesome-org-social/).
+To consume and read other users' feeds, install an official client: [org-social.el](https://github.com/tanrax/org-social.el) for Emacs or the [iOS app](https://apps.apple.com/us/app/org-social/id6764415116), or check [other available clients](https://github.com/tanrax/awesome-org-social/).
 
 ## Syntax
 
@@ -524,7 +524,7 @@ Because of the decentralised nature it is very difficult to discover new users. 
 
 However, Org Social has a network of nodes, Relays, which are responsible for reading the feeds, synchronizing them, and discovering each `social.org` to other users.
 
-If you use the Emacs client, it will register you automatically. Otherwise, you can do it with a single command:
+If you use one of the official clients, it will register you automatically. Otherwise, you can do it with a single command:
 
 ```sh
 curl -X POST https://relay.org-social.org/feeds/ -d '{"feed": "https://example.com/social.org"}' -H "Content-Type: application/json"
@@ -577,9 +577,9 @@ It depends on how you use it. Check the header `Last-Modified` to see if the fee
 
 Yes, you can modify or delete a post after you publish it. Just edit the file and upload it again keeping the original timestamp unchanged (otherwise you are making a new post and will break replies to your post). Clients will fetch the new file and update your profile.
 
-### Is there a official client?
+### Are there official clients?
 
-Yes, [org-social.el](https://github.com/tanrax/org-social.el). Check [Awesome Org Social](https://github.com/tanrax/awesome-org-social/) for more clients and libraries.
+Yes, [org-social.el](https://github.com/tanrax/org-social.el) for Emacs and the [Org Social iOS app](https://apps.apple.com/us/app/org-social/id6764415116). Check [Awesome Org Social](https://github.com/tanrax/awesome-org-social/) for more clients and libraries.
 
 ### Can I make private posts or restrict who sees my content?
 
@@ -935,7 +935,7 @@ First, register your feed on a Relay:
 curl -X POST https://relay.org-social.org/feeds/ -d '{"feed": "https://my-awesome-website.com/social.org"}' -H "Content-Type: application/json"
 ```
 
-**Note:** If you use the [official client](https://github.com/tanrax/org-social.el), registration happens automatically—no manual step needed.
+**Note:** If you use an official client ([org-social.el](https://github.com/tanrax/org-social.el) or the [iOS app](https://apps.apple.com/us/app/org-social/id6764415116)), registration happens automatically—no manual step needed.
 
 After registration, wait at least **1 minute** for your feed to be indexed. The Relay scans all registered feeds every minute.
 
@@ -1017,7 +1017,7 @@ flowchart TB
     C["Web Server<br>carol.net/social.org"] -- Fetch --> D["Relay Node<br>foo-org-social-relay.com"]
     n1 <-- Sync --> D & n2
     n2 <-- Sync --> D
-    D -- Mentions/Replies/Groups --> E["Your Emacs"]
+    D -- Mentions/Replies/Groups --> E["Your client"]
 
     n2@{ shape: rect}
     n1@{ shape: rect}
@@ -1050,9 +1050,11 @@ The Org Social ecosystem consists of several interconnected components that work
 
 ```mermaid
 flowchart TB
-    Client["org-social.el<br/>(Emacs Client)"] --> Preview["Org Social Live Preview"]
-    Client --> Relay1["Org Social Relay 1"]
-    Client --> Host["Org Social Host"]
+    ClientEmacs["org-social.el<br/>(Emacs)"] --> Preview["Org Social Live Preview"]
+    ClientEmacs --> Relay1["Org Social Relay 1"]
+    ClientEmacs --> Host["Org Social Host"]
+    ClientiOS["Org Social<br/>(iOS)"] --> Relay1
+    ClientiOS --> Host
 
     Host --> Relay1
 
@@ -1060,7 +1062,8 @@ flowchart TB
     Relay2 <--> Relay3["Org Social Relay 3"]
     Relay3 <--> Relay1
 
-    style Client fill:#733c9f,color:white
+    style ClientEmacs fill:#733c9f,color:white
+    style ClientiOS fill:#733c9f,color:white
     style Preview fill:#e1f5ff,color:black
     style Relay1 fill:#ffe1e1,color:black
     style Relay2 fill:#ffe1e1,color:black
@@ -1069,6 +1072,8 @@ flowchart TB
 ```
 
 - **org-social.el**: The official Emacs client for Org Social. It provides a full-featured interface for reading, writing, and interacting with Org Social feeds. It handles feed synchronization, post creation, reply management, and integration with the Relay system.
+
+- **Org Social (iOS)**: The official iOS client for Org Social. Available on the [App Store](https://apps.apple.com/us/app/org-social/id6764415116), it provides a native mobile experience for reading, writing, and interacting with Org Social feeds.
 
 - **Org Social Relay** : A P2P system that acts as an intermediary between all Org Social files. It scans the network creating an index of users, mentions, replies, groups and threads. Multiple Relay nodes synchronize with each other to distribute the load and share information across the network.
 
