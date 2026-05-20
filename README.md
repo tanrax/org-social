@@ -318,7 +318,7 @@ Each post uses Org Mode's properties drawer for metadata. The post ID (timestamp
 1. **In the header** (after `**`): `** 2025-05-01T12:00:00+0100`
 2. **In the properties drawer**: `:ID: 2025-05-01T12:00:00+0100`
 
-Both formats are valid. If the ID appears in both places, the header value takes priority.
+The ID-in-header format is recommended. The drawer format is legacy and kept for backwards compatibility. If the ID appears in both places, the header value takes priority.
 
 **Example with ID in header:**
 
@@ -337,10 +337,10 @@ Both formats are valid. If the ID appears in both places, the header value takes
 This is the content of my post with the ID in the header.
 ```
 
-**Example with ID in properties (traditional format):**
+**Example with ID in properties (legacy format):**
 
 ```org
-**
+** 
 :PROPERTIES:
 :ID: 2025-05-01T12:00:00+0100
 :LANG: en
@@ -354,6 +354,8 @@ This is the content of my post with the ID in the header.
 
 This is the content of my post with the ID in properties.
 ```
+
+**Note:** The empty headline (`** `) requires a trailing space to be valid Org Mode syntax. Some editors strip trailing whitespace on save (e.g. `delete-trailing-whitespace` in Emacs), which will silently break this format. Use the ID-in-header format to avoid this issue.
 
 Available properties:
 
@@ -606,7 +608,7 @@ The header after `**` can contain the post ID (timestamp) or be empty:
 - `** 2025-05-01T12:00:00+0100` - ID in the header (more visible when navigating the file)
 - `** ` - Empty header, ID in properties drawer (traditional format)
 
-Both formats are valid. When the ID is in the header, it's easier to see when browsing the file in org-mode. When it's in the properties drawer, the headers remain visually uniform.
+The ID-in-header format is recommended. The drawer format (`** `) is legacy. When the ID is in the header, it's easier to see when browsing the file in org-mode. When it's in the properties drawer, the headers remain visually uniform.
 
 **Why not use this space for a title?**
 
@@ -632,11 +634,11 @@ You can make a new post by adding a new headline under the `* Posts` section. Th
 This is my new post on Org-social with ID in the header.
 ```
 
-**Option 2: ID in properties drawer (traditional)**
+**Option 2: ID in properties drawer (legacy)**
 
 ```org
 * Posts
-**
+** 
 :PROPERTIES:
 :ID: 2025-05-01T12:00:00+0100
 :END:
@@ -644,7 +646,7 @@ This is my new post on Org-social with ID in the header.
 This is my new post on Org-social with ID in properties.
 ```
 
-Both formats are valid. The other properties are optional.
+Option 2 is a legacy format. The other properties are optional.
 
 If you want it to be published in a group, use the `:GROUP:` property.
 
