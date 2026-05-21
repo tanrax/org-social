@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7
+
+- Added `:BOT:` property for bot-generated posts. Format: `<type> [param...]`. The first param is the bot type (required); subsequent params are bot-specific data (optional). The post body should contain a human-readable representation. Clients should not display the property directly to the user.
+
 ## 1.6
 
 - Added `#+LOCATION:` global metadata field for user location (city, country).

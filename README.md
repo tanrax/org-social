@@ -67,6 +67,7 @@ And explore the syntax and join the community!
 	- [Create a multiline post with rich formatting](#create-a-multiline-post-with-rich-formatting)
 	- [Migrate your account to a new URL](#migrate-your-account-to-a-new-url)
 	- [Schedule a post](#schedule-a-post)
+	- [Create a bot post](#create-a-bot-post)
 	- [Add a title to a post](#add-a-title-to-a-post)
 	- [Share your RSS feed](#share-your-rss-feed)
 	- [Share an HTML preview of a post](#share-an-html-preview-of-a-post)
@@ -373,6 +374,7 @@ Available properties:
 | `INCLUDE` | Post being boosted/shared. Format: `URL` + `#` +`ID` | `https://alice.com/social.org#2025-05-01T10:00:00+0100` |
 | `MIGRATION` | Indicates account migration from old to new URL. Format: `<old-url> <new-url>` | `https://old-address.com/social.org https://new-address.com/social.org` |
 | `VISIBILITY` | Controls post visibility. Values: `public` (default if not specified) or `mention`. When set to `mention`, the post should only be displayed to mentioned users. Client extracts mentioned users from org-social links in the post body. Does not apply to posts with `GROUP` property. | `public`, `mention` |
+| `BOT` | Bot-generated post. Format: `<type> [param...]`. The first param is the bot type (required); subsequent params are bot-specific data (optional). The post body should contain a human-readable representation of the data. Clients that understand the bot type may render it specially; others fall back to the body. | `chess 1.e4 e5` |
 
 **Notes:**
 - Only `ID` is required. All other properties are optional.
@@ -506,6 +508,39 @@ To vote on a poll, create a vote post:
 :END:
 
 I choose Emacs Lisp as my favorite programming language!
+```
+
+### Bots
+
+The `:BOT:` property marks a post as bot-generated and carries structured data. The format is:
+
+```
+:BOT: <type> [param1] [param2] ...
+```
+
+- `<type>`: identifies the kind of bot (required). E.g. `chess`, `weather`, `quote`.
+- `[param...]`: space-separated values specific to that bot type (optional).
+
+The post body should contain a human-readable representation for clients that do not understand the bot type. If the body is absent, clients may display the raw data.
+
+**Note for clients:** The `:BOT:` property should never be displayed directly to the user. If the bot type is not recognized, render the post body as a regular post and ignore the property visually.
+
+```org
+** 2025-05-01T12:00:00+0100
+:PROPERTIES:
+:BOT: chess 1.e4 e5
+:END:
+
+  a b c d e f g h
+8 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+7 ♟ ♟ ♟ ♟ . ♟ ♟ ♟
+6 . . . . . . . .
+5 . . . . ♟ . . .
+4 . . . . ♙ . . .
+3 . . . . . . . .
+2 ♙ ♙ ♙ ♙ . ♙ ♙ ♙
+1 ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
+  a b c d e f g h
 ```
 
 ### Media Attachments
@@ -908,6 +943,28 @@ In the grim darkness of the far future, there is only war.
 ```
 
 Clients should filter out posts where the ID timestamp is in the future. Once the scheduled time passes, the post will automatically become visible when clients fetch the feed.
+
+### Create a bot post
+
+To publish structured bot data, use the `:BOT:` property. The first param is the bot type; the rest are its data. Add a human-readable body so clients that do not support the bot type can still display something meaningful.
+
+```org
+** 2025-05-01T12:00:00+0100
+:PROPERTIES:
+:BOT: chess 1.e4 e5
+:END:
+
+  a b c d e f g h
+8 ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+7 ♟ ♟ ♟ ♟ . ♟ ♟ ♟
+6 . . . . . . . .
+5 . . . . ♟ . . .
+4 . . . . ♙ . . .
+3 . . . . . . . .
+2 ♙ ♙ ♙ ♙ . ♙ ♙ ♙
+1 ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
+  a b c d e f g h
+```
 
 ### Add a title to a post
 
