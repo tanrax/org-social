@@ -71,6 +71,7 @@ And explore the syntax and join the community!
 	- [Add a title to a post](#add-a-title-to-a-post)
 	- [Share your RSS feed](#share-your-rss-feed)
 	- [Share an HTML preview of a post](#share-an-html-preview-of-a-post)
+	- [Follow a Mastodon account or an RSS feed](#follow-a-mastodon-account-or-an-rss-feed)
 - [Org Social Relay](#org-social-relay)
 - [Architecture](#architecture)
 - [Other Cool Things You Can Do](#other-cool-things-you-can-do)
@@ -1036,6 +1037,30 @@ https://preview.org-social.org/?post=https%3A%2F%2Fmy-awesome-website.com%2Fsoci
 
 The preview includes Open Graph metadata for rich social media sharing.
 
+### Follow a Mastodon account or an RSS feed
+
+Org Social does not federate with ActivityPub directly, but Relays provide **bridges**: virtual `social.org` feeds generated on the fly from external sources. This lets you read accounts from the Fediverse (Mastodon, Pleroma, etc.) and any RSS/Atom feed with your regular Org Social client.
+
+**Note:** You will need access to an [Org Social Relay](#org-social-relay) with bridges enabled (for example, a [public Relay node](https://github.com/tanrax/org-social-relay/blob/main/relay-list.txt)). Unlike groups, no special client support is required: the bridge is just a regular URL in your `#+FOLLOW:` list, so it works with any client.
+
+Just add the bridge URL as a normal `#+FOLLOW:` line:
+
+```org
+# A Mastodon (ActivityPub) account
+#+FOLLOW: https://relay.org-social.org/bridge/activitypub/@mastodon@mastodon.social/
+
+# An RSS/Atom feed (the url parameter must be URL-encoded)
+#+FOLLOW: https://relay.org-social.org/bridge/rss/?url=https%3A%2F%2Fxkcd.com%2Frss.xml
+```
+
+The first request registers the account on the Relay automatically; after that, the Relay keeps it up to date as long as someone follows it.
+
+**Notes:**
+
+- Bridges are **read-only**: you can read bridged accounts, but they cannot read you, and your replies or mentions will not reach them.
+- For ActivityPub accounts, only public top-level posts are bridged (no replies, no boosts). Content warnings appear as a `CW:` first line and hashtags become post tags.
+- For RSS feeds, each entry becomes a post with its title and a link to the original article.
+
 ### Migrate your account to a new URL
 
 If you need to move your `social.org` file to a new URL, you can create a migration post to notify your followers and allow clients to automatically update their follow lists.
@@ -1096,6 +1121,7 @@ This allows you to:
 - Read or participate in threads.
 - Perform searches (tags and full text).
 - Participate in groups.
+- Follow ActivityPub (Mastodon) accounts and RSS/Atom feeds through [bridges](#follow-a-mastodon-account-or-an-rss-feed).
 
 First, you will need a [Relay-compatible client](https://github.com/tanrax/awesome-org-social/).
 
