@@ -14,3 +14,7 @@ Contributions are welcome! Please see the [contribution guidelines](https://git.
 ## Thanks
 
 Thanks to all the people who have contributed to this project by reporting issues, making suggestions, or simply using it. ❤
+
+## License
+
+This project is licensed under the terms of the [GNU General Public License v3.0](LICENSE).
